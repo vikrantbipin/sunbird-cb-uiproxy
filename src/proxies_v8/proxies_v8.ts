@@ -349,7 +349,9 @@ proxiesV8.use('/notification/*',
 
 proxiesV8.post('/org/v1/search', async (req, res) => {
   const roleData = lodash.get(req, 'session.userRoles')
+  // tslint:disable-next-line
   const rootOrgId = lodash.get(req, 'session.rootOrgId')
+  // tslint:disable-next-line
   let urlPath = API_END_POINTS.kongSearchOrg
   if (roleData.includes('STATE_ADMIN')) {
     req.body.request.filters.sbRootOrgId = rootOrgId
@@ -903,7 +905,7 @@ proxiesV8.patch(['/cloud-services/mlcore/v1/files/upload'], (req, res) => {
 //     formData.append('file', Buffer.from(file.data), {
 //       contentType: file.mimetype,
 //       filename: file.name,
-//     })  
+//     })
 //     // tslint:disable-next-line: all
 //     console.log('formData', formData);
 //     formData.submit(

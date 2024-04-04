@@ -56,7 +56,7 @@ proxy.on('proxyReq', (proxyReq: any, req: any, _res: any, _options: any) => {
   // tslint:disable-next-line:max-line-length
   if (!req.originalUrl.includes('/storage/upload') && !req.originalUrl.includes('/storage/profilePhotoUpload/*') && !req.originalUrl.includes('/cloud-services/mlcore/v1/files/upload/*') &&  req.body) {
     // tslint:disable-next-line: no-console
-    console.log('req in creator', req);
+    console.log('req in creator', req)
     const bodyData = JSON.stringify(req.body)
     proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData))
     proxyReq.write(bodyData)
