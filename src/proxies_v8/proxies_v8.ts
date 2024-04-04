@@ -385,6 +385,7 @@ proxiesV8.post(['/user/v1/bulkupload', '/storage/profilePhotoUpload/*', '/workfl
    // tslint:disable-next-line: all
    console.log('req files--->', req.files);
   if (req.files && req.files.data) {
+    // tslint:disable-next-line:all
     const url = removePrefix('/proxies/v8', req.originalUrl)
     const file: UploadedFile = req.files.data as UploadedFile
     const formData = new FormData()
@@ -396,6 +397,7 @@ proxiesV8.post(['/user/v1/bulkupload', '/storage/profilePhotoUpload/*', '/workfl
     if (!rootOrgId) {
       rootOrgId = ''
     }
+    // tslint:disable-next-line:all
     let channel = _.get(req, 'session.channel')
     if (!channel) {
       channel = ''
@@ -407,7 +409,9 @@ proxiesV8.post(['/user/v1/bulkupload', '/storage/profilePhotoUpload/*', '/workfl
           Authorization: CONSTANTS.SB_API_KEY,
           // tslint:disable-next-line: all
           'x-authenticated-user-channel': encodeURIComponent(channel),
+          // tslint:disable-next-line
           'x-authenticated-user-orgid': rootOrgId,
+          // tslint:disable-next-line
           'x-authenticated-user-orgname': encodeURIComponent(channel),
           'x-authenticated-user-token': extractUserToken(req),
           'x-authenticated-userid': extractUserIdFromRequest(req),
