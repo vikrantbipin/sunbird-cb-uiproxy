@@ -834,14 +834,18 @@ proxiesV8.use('/catalog/*',
 )
 
 proxiesV8.patch(['/cloud-services/mlcore/v1/files/upload'], (req, res) => {
+  console.log('req');
   if (req.files && req.files.file) {
     const url = removePrefix('/proxies/v8', req.originalUrl)
     const file: UploadedFile = req.files.file as UploadedFile
+    console.log('url', url);
+    console.log('file', file);
     const formData = new FormData()
     formData.append('file', Buffer.from(file.data), {
       contentType: file.mimetype,
       filename: file.name,
     })  
+    console.log('formData', formData);
     formData.submit(
       {
         headers: {
