@@ -834,17 +834,21 @@ proxiesV8.use('/catalog/*',
 )
 
 proxiesV8.patch(['/cloud-services/mlcore/v1/files/upload'], (req, res) => {
+  // tslint:disable-next-line: all
   console.log('req');
   if (req.files && req.files.file) {
     const url = removePrefix('/proxies/v8', req.originalUrl)
     const file: UploadedFile = req.files.file as UploadedFile
+    // tslint:disable-next-line: all
     console.log('url', url);
+    // tslint:disable-next-line: all
     console.log('file', file);
     const formData = new FormData()
     formData.append('file', Buffer.from(file.data), {
       contentType: file.mimetype,
       filename: file.name,
     })  
+    // tslint:disable-next-line: all
     console.log('formData', formData);
     formData.submit(
       {
