@@ -839,6 +839,7 @@ proxiesV8.use('/catalog/*',
 proxiesV8.patch(['/cloud-services/mlcore/v1/files/upload'], (req, res) => {
   // tslint:disable-next-line: all
   console.log('req for files--->', req);
+  // tslint:disable-next-line: all
   console.log('req files--->', req.files);
   if (req.files && req.files.data) {
     const url = removePrefix('/proxies/v8', req.originalUrl)
