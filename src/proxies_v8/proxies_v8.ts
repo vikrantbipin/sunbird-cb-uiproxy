@@ -379,7 +379,7 @@ proxiesV8.use('/dashboard/*',
   proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
 )
 // tslint:disable-next-line:max-line-length
-proxiesV8.post(['/user/v1/bulkupload', '/storage/profilePhotoUpload/*', '/workflow/admin/transition/bulkupdate', '/cloud-services/mlcore/v1/files/upload'], (req, res) => {
+proxiesV8.post(['/user/v1/bulkupload', '/storage/profilePhotoUpload/*', '/workflow/admin/transition/bulkupdate'], (req, res) => {
   // tslint:disable-next-line: all
   console.log('req for files--->', req);
   // tslint:disable-next-line: all
@@ -840,14 +840,14 @@ proxiesV8.use('/catalog/*',
 )
 
 // tslint:disable-next-line:max-line-length
-proxiesV8.patch(['/cloud-services/mlcore/v1/files/upload'], (req, res) => {
+proxiesV8.post(['/cloud-services/mlcore/v1/files/upload'], (req, res) => {
   // tslint:disable-next-line: all
   console.log('req for files--->', req);
   // tslint:disable-next-line: all
   console.log('req files--->', req.files);
-  if (req.files && req.files.data) {
+  if (req.files && req.files.file) {
     const url = removePrefix('/proxies/v8', req.originalUrl)
-    const file: UploadedFile = req.files.data as UploadedFile
+    const file: UploadedFile = req.files.file as UploadedFile
     const formData = new FormData()
     formData.append('file', Buffer.from(file.data), {
       contentType: file.mimetype,
