@@ -435,7 +435,7 @@ proxiesV8.post(['/user/v1/bulkupload', '/storage/profilePhotoUpload/*', '/workfl
       filename: file.name,
     })
     let rootOrgId = _.get(req, 'session.rootOrgId')
-    if (!rootOrgId) {
+    if (!rootOrgId) { 
       rootOrgId = ''
     }
     let channel = _.get(req, 'session.channel')
