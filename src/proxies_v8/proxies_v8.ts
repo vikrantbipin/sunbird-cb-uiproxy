@@ -350,6 +350,7 @@ proxiesV8.use('/notification/*',
 proxiesV8.post('/org/v1/search', async (req, res) => {
   // tslint:disable-next-line: all
   const roleData = lodash.get(req, 'session.userRoles')  
+  // tslint:disable-next-line: all
   const rootOrgId = lodash.get(req, 'session.rootOrgId')
   let urlPath = API_END_POINTS.kongSearchOrg
   if (roleData.includes('STATE_ADMIN')) {
@@ -435,7 +436,7 @@ proxiesV8.post(['/user/v1/bulkupload', '/storage/profilePhotoUpload/*', '/workfl
       filename: file.name,
     })
     let rootOrgId = _.get(req, 'session.rootOrgId')
-    if (!rootOrgId) { 
+    if (!rootOrgId) {
       rootOrgId = ''
     }
     let channel = _.get(req, 'session.channel')
