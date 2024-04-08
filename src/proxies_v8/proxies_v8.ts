@@ -425,6 +425,53 @@ proxiesV8.post(['/user/v1/bulkupload', '/storage/profilePhotoUpload/*', '/workfl
         }
       }
     )
+  } else if (req.files && req.files.file) {
+    const url = removePrefix('/proxies/v8', req.originalUrl)
+    const file: UploadedFile = req.files.file as UploadedFile
+    const formData = new FormData()
+    formData.append('file', Buffer.from(file.data), {
+      contentType: file.mimetype,
+      filename: file.name,
+    })
+    let rootOrgId = _.get(req, 'session.rootOrgId')
+    if (!rootOrgId) { 
+      rootOrgId = ''
+    }
+    let channel = _.get(req, 'session.channel')
+    if (!channel) {
+      channel = ''
+    }
+    formData.submit(
+      {
+        headers: {
+          // tslint:disable-next-line:max-line-length
+          Authorization: CONSTANTS.SB_API_KEY,
+          // tslint:disable-next-line: all
+          'x-authenticated-user-channel': encodeURIComponent(channel),
+          'x-authenticated-user-orgid': rootOrgId,
+          'x-authenticated-user-orgname': encodeURIComponent(channel),
+          'x-authenticated-user-token': extractUserToken(req),
+          'x-authenticated-userid': extractUserIdFromRequest(req),
+        },
+        host: 'kong',
+        path: url,
+        port: 8000,
+      },
+      // tslint:disable-next-line: all
+      (err, response) => {
+        // tslint:disable-next-line: all
+        response.on('data', (data) => {
+          if (!err && (response.statusCode === 200 || response.statusCode === 201 || response.statusCode === 406)) {
+            res.status(response.statusCode).send(JSON.parse(data.toString('utf8')))
+          } else {
+            res.status(500).send(data.toString('utf8'))
+          }
+        })
+        if (err) {
+          res.status(500).send(err)
+        }
+      }
+    )
   } else {
     res.status(500).send(FILE_NOT_FOUND_ERR)
   }
