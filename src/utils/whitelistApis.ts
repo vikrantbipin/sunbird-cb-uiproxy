@@ -2920,6 +2920,27 @@ export const API_LIST = {
                 ROLE.CONTENT_CREATOR,
               ],
           },
+          '/proxies/v8/catalog/v1/sector/read/:sectorId': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.PUBLIC,
+              ],
+          },
+          '/proxies/v8/catalog/v1/sector/create': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.SPV_ADMIN,
+              ],
+          },
+          '/proxies/v8/catalog/v1/subsector/create': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.SPV_ADMIN,
+              ],
+          },
     },
     URL_PATTERN:
         [
@@ -3294,5 +3315,8 @@ export const API_LIST = {
             '/proxies/v8/course/v1/batch/getParticipants',
             '/proxies/v8/catalog/v1/sector',
             '/proxies/v8/content/v2/discard/:id',
+            '/proxies/v8/catalog/v1/sector/read/:sectorId',
+            '/proxies/v8/catalog/v1/sector/create',
+            '/proxies/v8/catalog/v1/subsector/create',
            ],
 }
