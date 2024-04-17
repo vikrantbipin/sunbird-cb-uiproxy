@@ -1,4 +1,6 @@
+import axios from 'axios'
 import express from 'express'
+import { axiosRequestConfig } from '../configs/request.config'
 import { CONSTANTS } from '../utils/env'
 import { logError } from '../utils/logger'
 import { proxyCreatorRoute } from '../utils/proxyCreator'
@@ -8,6 +10,10 @@ import { youtubePlaylist } from './youtubePlaylist'
 
 const puppeteer = require('puppeteer')
 export const publicApiV8 = express.Router()
+
+const API_END_POINTS = {
+  kongCompositeSearch: `${CONSTANTS.KONG_API_BASE}/composite/v4/search`,
+}
 
 publicApiV8.get('/', (_req, res) => {
   res.json({
@@ -65,3 +71,36 @@ publicApiV8.use('/parichay', parichayAuth)
 publicApiV8.use('/halloffame/read', proxyCreatorRoute(express.Router(), CONSTANTS.KONG_API_BASE + '/halloffame/read'))
 
 publicApiV8.use('/playlist', youtubePlaylist)
+
+// tslint:disable-next-line: all
+publicApiV8.get('/careers/list', async (_, res) => {
+  const reqBody = {
+    request: {
+      filters: {
+        resourceCategory: 'Jobs',
+        status: ['Live'],
+      },
+      limit: 500,
+      offset: 0,
+      sort_by : {
+        lastUpdatedOn: 'desc',
+      },
+    },
+  }
+  try {
+    const response = await axios.post(API_END_POINTS.kongCompositeSearch, reqBody, {
+      ...axiosRequestConfig,
+      headers: {
+        Authorization: CONSTANTS.SB_API_KEY,
+      },
+    })
+    if (!response.data.result.response) {
+      res.status(400).send(response.data)
+    } else {
+      res.status(200).send(response.data)
+    }
+  } catch (error) {
+    logError('Failed to get carrer listing. Error : ' + error)
+    res.status(500).send('Internal Server Error')
+  }
+})
