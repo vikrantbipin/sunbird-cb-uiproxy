@@ -2941,6 +2941,51 @@ export const API_LIST = {
                 ROLE.SPV_ADMIN,
               ],
           },
+
+        '/proxies/v8/calendar/v4/read/:do_id': {
+
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.PUBLIC,
+            ],
+        },
+
+        '/proxies/v8/calendar/v4/publish/:do_id': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.CBP_ADMIN,
+            ],
+        },
+        '/proxies/v8/calendar/v4/create': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.CBP_ADMIN,
+            ],
+        },
+        '/proxies/v8/calendar/v4/update/:do_id': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.CBP_ADMIN,
+            ],
+        },
+        '/proxies/v8/calendar/v4/retire/:do_id': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.CBP_ADMIN,
+            ],
+        },
+        '/proxies/v8/calendar/v1/bulkUpload': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.CBP_ADMIN,
+            ],
+        },
           '/proxies/v8/careers/v4/read/:do_id': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
@@ -2952,6 +2997,9 @@ export const API_LIST = {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
+                ROLE.SPV_ADMIN,
                 ROLE.CONTENT_CREATOR,
                 ROLE.CBP_ADMIN,
             ],
@@ -2960,6 +3008,9 @@ export const API_LIST = {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
+                ROLE.SPV_ADMIN,
                 ROLE.CONTENT_CREATOR,
                 ROLE.CBP_ADMIN,
             ],
@@ -2968,6 +3019,9 @@ export const API_LIST = {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
+                ROLE.SPV_ADMIN,
                 ROLE.CONTENT_CREATOR,
                 ROLE.CBP_ADMIN,
             ],
@@ -2976,6 +3030,9 @@ export const API_LIST = {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
+                ROLE.SPV_ADMIN,   
                 ROLE.CONTENT_CREATOR,
                 ROLE.CBP_ADMIN,
             ],
@@ -3358,10 +3415,17 @@ export const API_LIST = {
             '/proxies/v8/catalog/v1/sector/read/:sectorId',
             '/proxies/v8/catalog/v1/sector/create',
             '/proxies/v8/catalog/v1/subsector/create',
+            '/proxies/v8/calendar/v4/read/:do_id',
+            '/proxies/v8/calendar/v4/publish/:do_id',
+            '/proxies/v8/calendar/v4/create',
+            '/proxies/v8/calendar/v4/update/:do_id',
+            '/proxies/v8/calendar/v4/retire/:do_id',
+            '/proxies/v8/calendar/v1/bulkUpload',
             '/proxies/v8/careers/v4/read/:do_id',
             '/proxies/v8/careers/v4/publish/:do_id',
             '/proxies/v8/careers/v4/create',
             '/proxies/v8/careers/v4/update/:do_id',
             '/proxies/v8/careers/v4/retire/:do_id',
+
            ],
 }
