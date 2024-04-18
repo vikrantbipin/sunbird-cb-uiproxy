@@ -94,7 +94,8 @@ publicApiV8.get('/careers/list', async (_, res) => {
         Authorization: CONSTANTS.SB_API_KEY,
       },
     })
-    if (!response.data.result.response) {
+    const resCode = response.data.responseCode
+    if (!resCode || resCode.toLowerCase() !== 'ok') {
       res.status(400).send(response.data)
     } else {
       res.status(200).send(response.data)
