@@ -2986,8 +2986,7 @@ export const API_LIST = {
                 ROLE.CBP_ADMIN,
             ],
         },
-        '/proxies/v8/careers/v4/read/:do_id': {
-
+          '/proxies/v8/careers/v4/read/:do_id': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
@@ -3001,6 +3000,8 @@ export const API_LIST = {
                 ROLE.MDO_ADMIN,
                 ROLE.MDO_LEADER,
                 ROLE.SPV_ADMIN,
+                ROLE.CONTENT_CREATOR,
+                ROLE.CBP_ADMIN,
             ],
         },
         '/proxies/v8/careers/v4/create': {
@@ -3010,6 +3011,8 @@ export const API_LIST = {
                 ROLE.MDO_ADMIN,
                 ROLE.MDO_LEADER,
                 ROLE.SPV_ADMIN,
+                ROLE.CONTENT_CREATOR,
+                ROLE.CBP_ADMIN,
             ],
         },
         '/proxies/v8/careers/v4/update/:do_id': {
@@ -3019,6 +3022,8 @@ export const API_LIST = {
                 ROLE.MDO_ADMIN,
                 ROLE.MDO_LEADER,
                 ROLE.SPV_ADMIN,
+                ROLE.CONTENT_CREATOR,
+                ROLE.CBP_ADMIN,
             ],
         },
         '/proxies/v8/careers/v4/retire/:do_id': {
@@ -3027,9 +3032,12 @@ export const API_LIST = {
             ROLE_CHECK: [
                 ROLE.MDO_ADMIN,
                 ROLE.MDO_LEADER,
-                ROLE.SPV_ADMIN,
+                ROLE.SPV_ADMIN,   
+                ROLE.CONTENT_CREATOR,
+                ROLE.CBP_ADMIN,
             ],
         },
+          
     },
     URL_PATTERN:
         [
