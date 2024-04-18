@@ -76,6 +76,7 @@ publicApiV8.use('/playlist', youtubePlaylist)
 publicApiV8.get('/careers/list', async (_, res) => {
   const reqBody = {
     request: {
+      facets: ['name', 'sourceName', 'position'],
       filters: {
         resourceCategory: 'Jobs',
         status: ['Live'],
