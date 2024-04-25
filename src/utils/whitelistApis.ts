@@ -3035,7 +3035,12 @@ export const API_LIST = {
                 ROLE.PUBLIC,
             ],
         },
-          
+        '/proxies/v8/ratings/v1/topReviews': {
+           ROLE_CHECK: [
+              ROLE.PUBLIC,
+            ],
+          checksNeeded: [CHECK.ROLE],
+       },
     },
     URL_PATTERN:
         [
@@ -3427,5 +3432,6 @@ export const API_LIST = {
             '/proxies/v8/microsite/read/insights',
             '/proxies/v8/admin/trending/content/search',
             '/proxies/v8/workflow/v2/userWFApplicationFieldsSearch',
+            '/proxies/v8/ratings/v1/topReviews',
            ],
 }
