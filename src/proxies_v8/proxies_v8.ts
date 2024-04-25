@@ -259,12 +259,12 @@ proxiesV8.use('/halloffame/learnerleaderboard',
   proxyCreatorSunbirdSearch(express.Router(), `${CONSTANTS.KONG_API_BASE}/halloffame/learnerleaderboard`)
 )
 
-proxiesV8.use('microsite/read/insights',
+proxiesV8.use('/microsite/read/insights',
   // tslint:disable-next-line: max-line-length
   proxyCreatorSunbirdSearch(express.Router(), `${CONSTANTS.KONG_API_BASE}microsite/read/insights`)
 )
 
-proxiesV8.use('admin/trending/content/search',
+proxiesV8.use('/microsite/topFeatured/content/search',
   // tslint:disable-next-line: max-line-length
   proxyCreatorSunbirdSearch(express.Router(), `${CONSTANTS.KONG_API_BASE}/microsite/topFeatured/content/search`)
 )
