@@ -17,7 +17,9 @@ import { proxiesV8 } from './proxies_v8/proxies_v8'
 import { publicApiV8 } from './publicApi_v8/publicApiV8'
 import { CustomKeycloak } from './utils/custom-keycloak'
 import { CONSTANTS } from './utils/env'
-import { logInfo, logSuccess } from './utils/logger'
+import { logError, logInfo, logSuccess } from './utils/logger'
+const { frameworkAPI } = require('@project-sunbird/ext-framework-server/api')
+const frameworkConfig = require('./framework.config.js')
 const cookieParser = require('cookie-parser')
 const healthcheck = require('express-healthcheck')
 
@@ -62,6 +64,7 @@ export class Server {
     this.authoringApi()
     this.resetCookies()
     this.app.use(haltOnTimedOut)
+    this.setExtFormsFramework()
   }
 
   private setCookie() {
@@ -140,6 +143,14 @@ export class Server {
     this.app.use(this.keycloak.middleware)
   }
 
+  private setExtFormsFramework() {
+    // tslint:disable-next-line: no-any
+    frameworkAPI.bootstrap(frameworkConfig, this.app).then((data: any) => {
+      logInfo('Successfuly bootstrapped frameworkAPI', data)
+    })
+    // tslint:disable-next-line: no-any
+    .catch((error: any ) => logError('Error in frameworkAPI bootstrap', error))
+  }
   private servePublicApi() {
     this.app.use('/public/v8', publicApiV8)
   }
@@ -180,4 +191,8 @@ export class Server {
       res.redirect(redirectUrl)
     })
   }
+
+  // private handleShutDowns() {
+  //   await frameworkAPI.closeCassandraConnections();
+  // }
 }
