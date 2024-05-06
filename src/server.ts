@@ -19,7 +19,7 @@ import { CustomKeycloak } from './utils/custom-keycloak'
 import { CONSTANTS } from './utils/env'
 import { logError, logInfo, logSuccess } from './utils/logger'
 const { frameworkAPI } = require('@project-sunbird/ext-framework-server/api')
-const frameworkConfig = require('./framework.config.js')
+const frameworkConfig = require('./configs/framework.config')
 const cookieParser = require('cookie-parser')
 const healthcheck = require('express-healthcheck')
 
