@@ -29,6 +29,16 @@ module.exports = {
                 prepare: true,
             },
         },
+        elasticsearch: {
+            host: "",
+            disabledApis: []
+        },
+        couchdb: {
+            url: ''
+        },
+        pouchdb:{
+            path:''
+        }
     },
     logLevel: 'error',
     pluginBasePath: __dirname + '/../node_modules/',
