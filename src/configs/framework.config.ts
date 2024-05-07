@@ -29,12 +29,12 @@ module.exports = {
                 prepare: true,
             },
         },
-        elasticsearch: {
-            host: '',
-            disabledApis: [],
-        },
         couchdb: {
             url: '',
+        },
+        elasticsearch: {
+            disabledApis: [],
+            host: '',
         },
         pouchdb: {
             path: '',
