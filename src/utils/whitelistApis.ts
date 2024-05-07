@@ -3013,7 +3013,20 @@ export const API_LIST = {
                 ROLE.SPV_ADMIN,
             ],
         },
-
+        '/proxies/v8/data/v1/form/create': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+               
+            ],
+        },
+        '/proxies/v8/data/v1/form/read': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+               
+            ],
+        },
     },
     URL_PATTERN:
         [
@@ -3402,5 +3415,7 @@ export const API_LIST = {
             '/proxies/v8/careers/v4/create',
             '/proxies/v8/careers/v4/update/:do_id',
             '/proxies/v8/careers/v4/retire/:do_id',
+            '/proxies/v8/data/v1/form/create',
+            '/proxies/v8/data/v1/form/read',
            ],
 }
