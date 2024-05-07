@@ -1,14 +1,13 @@
 
 const fs = require('fs')
 const expressCassandra = require('express-cassandra')
-import { logInfo } from 'src/utils/logger'
 import { CONSTANTS } from '../utils/env'
 const _ = require('lodash')
 const packageObj = JSON.parse(fs.readFileSync('package.json', 'utf8'))
 const uuidv1 = require('uuid/v1')
 
 const consistency = getConsistencyLevel(CONSTANTS.PORTAL_CASSANDRA_CONSISTENCY_LEVEL)
-const replicationStrategy = {"class":"SimpleStrategy","replication_factor":1}
+const replicationStrategy = {class: 'SimpleStrategy', replication_factor: 1}
 function getIPList() {
     return CONSTANTS.CASSANDRA_IP.split(',')
 }
@@ -18,8 +17,8 @@ function getConsistencyLevel(consistencyParam: any) {
     // tslint:disable-next-line: max-line-length
     return (consistencyParam && _.get(expressCassandra, `consistencies.${consistencyParam}`) ? _.get(expressCassandra, `consistencies.${consistencyParam}`) :  expressCassandra.consistencies.one)
   }
-
-logInfo('getIPList method : ', getIPList())
+// tslint:disable-next-line: no-console
+console.log('getIPList method : ', getIPList())
 module.exports = {
     db: {
         cassandra: {
@@ -28,7 +27,7 @@ module.exports = {
                 replication: replicationStrategy,
             },
             queryOptions: {
-                consistency
+                consistency,
                 // prepare: true,
             },
         },
