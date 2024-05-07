@@ -30,15 +30,15 @@ module.exports = {
             },
         },
         elasticsearch: {
-            host: "",
-            disabledApis: []
+            host: '',
+            disabledApis: [],
         },
         couchdb: {
-            url: ''
+            url: '',
         },
-        pouchdb:{
-            path:''
-        }
+        pouchdb: {
+            path: '',
+        },
     },
     logLevel: 'error',
     pluginBasePath: __dirname + '/../node_modules/',
