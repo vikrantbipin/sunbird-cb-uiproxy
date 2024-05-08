@@ -144,7 +144,7 @@ export class Server {
   }
 
   private setExtFormsFramework() {
-    logInfo('setExtFormsFramework MEthod - frameworkConfig :: ', frameworkConfig)
+    logInfo('setExtFormsFramework MEthod - frameworkConfig :: ', JSON.stringify(frameworkConfig))
     // tslint:disable-next-line: no-any
     frameworkAPI.bootstrap(frameworkConfig, this.app).then((data: any) => {
       logInfo('Successfuly bootstrapped frameworkAPI', data)

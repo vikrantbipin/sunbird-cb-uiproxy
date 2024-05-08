@@ -3013,7 +3013,7 @@ export const API_LIST = {
                 ROLE.SPV_ADMIN,
             ],
         },
-        '/data/v1/form/create': {
+        '/proxies/v8/forms/v1/form/create': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
@@ -3021,27 +3021,10 @@ export const API_LIST = {
                 ROLE.PUBLIC,
             ],
         },
-        '/data/v1/form/read': {
+        '/proxies/v8/forms/v1/form/read': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
-                ROLE.CBP_ADMIN,
-                ROLE.PUBLIC,
-            ],
-        },
-        '/proxies/v8/data/v1/form/create': {
-            checksNeeded: [CHECK.ROLE],
-            // tslint:disable-next-line: object-literal-sort-keys
-            ROLE_CHECK: [
-                ROLE.CBP_ADMIN,
-                ROLE.PUBLIC,
-            ],
-        },
-        '/proxies/v8/data/v1/form/read': {
-            checksNeeded: [CHECK.ROLE],
-            // tslint:disable-next-line: object-literal-sort-keys
-            ROLE_CHECK: [
-                ROLE.CBP_ADMIN,
                 ROLE.PUBLIC,
             ],
         },
@@ -3433,9 +3416,7 @@ export const API_LIST = {
             '/proxies/v8/careers/v4/create',
             '/proxies/v8/careers/v4/update/:do_id',
             '/proxies/v8/careers/v4/retire/:do_id',
-            '/proxies/v8/data/v1/form/create',
-            '/proxies/v8/data/v1/form/read',
-            '/data/v1/form/create',
-            '/data/v1/form/read',
+            '/proxies/v8/forms/v1/form/create',
+            '/proxies/v8/forms/v1/form/read',
            ],
 }
