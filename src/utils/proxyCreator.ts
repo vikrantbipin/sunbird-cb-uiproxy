@@ -12,7 +12,7 @@ const proxyCreator = (timeout = 10000) => createProxyServer({
 const proxy = createProxyServer({})
 const PROXY_SLUG = '/proxies/v8'
 const PROXY_SLUG_WAT = '/proxies/v8/wat'
-const PROXY_SLUG_FORMS = '/proxies/v8/forms'
+const PROXY_SLUG_FORMS = '/proxies/v8/ext-forms'
 
 // tslint:disable-next-line: no-any
 proxy.on('proxyReq', (proxyReq: any, req: any, _res: any, _options: any) => {

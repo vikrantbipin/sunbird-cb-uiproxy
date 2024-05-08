@@ -3028,6 +3028,13 @@ export const API_LIST = {
                 ROLE.PUBLIC,
             ],
         },
+        '/v1/form/read': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.PUBLIC,
+            ],
+        },
     },
     URL_PATTERN:
         [
@@ -3418,5 +3425,6 @@ export const API_LIST = {
             '/proxies/v8/careers/v4/retire/:do_id',
             '/proxies/v8/ext-forms/v1/form/create',
             '/proxies/v8/ext-forms/v1/form/read',
+            '/v1/form/read'
            ],
 }
