@@ -956,7 +956,7 @@ export interface ICohortsUser {
   city: string
 }
 
-proxiesV8.use('/forms/*',
+proxiesV8.use('/ext-forms/*',
   // tslint:disable-next-line: max-line-length
   proxyCreatorForms(express.Router())
 )
