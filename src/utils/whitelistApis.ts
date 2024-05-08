@@ -3021,6 +3021,14 @@ export const API_LIST = {
                 ROLE.PUBLIC,
             ],
         },
+        '/v1/form/create': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.CBP_ADMIN,
+                ROLE.PUBLIC,
+            ],
+        },
         '/proxies/v8/ext-forms/v1/form/read': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
@@ -3032,6 +3040,38 @@ export const API_LIST = {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
+                ROLE.PUBLIC,
+            ],
+        },
+        '/proxies/v8/ext-forms/v1/form/update': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.CBP_ADMIN,
+                ROLE.PUBLIC,
+            ],
+        },
+        '/v1/form/update': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.CBP_ADMIN,
+                ROLE.PUBLIC,
+            ],
+        },
+        '/proxies/v8/ext-forms/v1/form/list': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.CBP_ADMIN,
+                ROLE.PUBLIC,
+            ],
+        },
+        '/v1/form/list': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.CBP_ADMIN,
                 ROLE.PUBLIC,
             ],
         },
@@ -3424,7 +3464,12 @@ export const API_LIST = {
             '/proxies/v8/careers/v4/update/:do_id',
             '/proxies/v8/careers/v4/retire/:do_id',
             '/proxies/v8/ext-forms/v1/form/create',
+            '/v1/form/create',
             '/proxies/v8/ext-forms/v1/form/read',
-            '/v1/form/read'
+            '/v1/form/read',
+            '/proxies/v8/ext-forms/v1/form/update',
+            '/v1/form/update',
+            '/proxies/v8/ext-forms/v1/form/list',
+            '/v1/form/list'
            ],
 }
