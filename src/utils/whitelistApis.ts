@@ -3017,7 +3017,8 @@ export const API_LIST = {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
-                ROLE.CBP_ADMIN,
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
                 ROLE.PUBLIC,
             ],
         },
@@ -3025,7 +3026,8 @@ export const API_LIST = {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
-                ROLE.CBP_ADMIN,
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
                 ROLE.PUBLIC,
             ],
         },
@@ -3033,6 +3035,8 @@ export const API_LIST = {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
                 ROLE.PUBLIC,
             ],
         },
@@ -3040,6 +3044,8 @@ export const API_LIST = {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
                 ROLE.PUBLIC,
             ],
         },
@@ -3047,7 +3053,8 @@ export const API_LIST = {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
-                ROLE.CBP_ADMIN,
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
                 ROLE.PUBLIC,
             ],
         },
@@ -3055,7 +3062,8 @@ export const API_LIST = {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
-                ROLE.CBP_ADMIN,
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
                 ROLE.PUBLIC,
             ],
         },
@@ -3063,7 +3071,8 @@ export const API_LIST = {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
-                ROLE.CBP_ADMIN,
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
                 ROLE.PUBLIC,
             ],
         },
@@ -3071,7 +3080,26 @@ export const API_LIST = {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
-                ROLE.CBP_ADMIN,
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
+                ROLE.PUBLIC,
+            ],
+        },
+        '/proxies/v8/ext-forms/v1/form/fetchAll': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
+                ROLE.PUBLIC,
+            ],
+        },
+        '/v1/form/fetchAll': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
                 ROLE.PUBLIC,
             ],
         },
@@ -3470,6 +3498,8 @@ export const API_LIST = {
             '/proxies/v8/ext-forms/v1/form/update',
             '/v1/form/update',
             '/proxies/v8/ext-forms/v1/form/list',
-            '/v1/form/list'
+            '/v1/form/list',
+            '/proxies/v8/ext-forms/v1/form/fetchAll',
+            '/v1/form/fetchAll'
            ],
 }
