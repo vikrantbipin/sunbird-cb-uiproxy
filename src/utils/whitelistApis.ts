@@ -3041,12 +3041,10 @@ export const API_LIST = {
             ],
         },
         '/v1/form/read': {
-            checksNeeded: [CHECK.ROLE],
+            checksNeeded: [],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
-                ROLE.MDO_ADMIN,
-                ROLE.MDO_LEADER,
-                ROLE.PUBLIC,
+              
             ],
         },
         '/proxies/v8/ext-forms/v1/form/update': {
