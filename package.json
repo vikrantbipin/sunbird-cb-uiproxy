@@ -21,6 +21,8 @@
   "author": "Christopher Fernandes",
   "license": "MIT",
   "dependencies": {
+    "@project-sunbird/ext-framework-server": "^0.1.28",
+    "@project-sunbird/form-service": "0.0.15",
     "@types/cors": "^2.8.6",
     "@types/node-xlsx": "^0.15.0",
     "async": "^3.2.0",

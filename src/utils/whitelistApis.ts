@@ -3013,7 +3013,96 @@ export const API_LIST = {
                 ROLE.SPV_ADMIN,
             ],
         },
-
+        '/proxies/v8/ext-forms/v1/form/create': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
+                ROLE.PUBLIC,
+            ],
+        },
+        '/v1/form/create': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
+                ROLE.PUBLIC,
+            ],
+        },
+        '/proxies/v8/ext-forms/v1/form/read': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
+                ROLE.PUBLIC,
+            ],
+        },
+        '/v1/form/read': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
+                ROLE.PUBLIC,
+            ],
+        },
+        '/proxies/v8/ext-forms/v1/form/update': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
+                ROLE.PUBLIC,
+            ],
+        },
+        '/v1/form/update': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
+                ROLE.PUBLIC,
+            ],
+        },
+        '/proxies/v8/ext-forms/v1/form/list': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
+                ROLE.PUBLIC,
+            ],
+        },
+        '/v1/form/list': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
+                ROLE.PUBLIC,
+            ],
+        },
+        '/proxies/v8/ext-forms/v1/form/fetchAll': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
+                ROLE.PUBLIC,
+            ],
+        },
+        '/v1/form/fetchAll': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
+                ROLE.PUBLIC,
+            ],
+        },
         '/proxies/v8/microsite/read/insights': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
@@ -3429,6 +3518,16 @@ export const API_LIST = {
             '/proxies/v8/careers/v4/create',
             '/proxies/v8/careers/v4/update/:do_id',
             '/proxies/v8/careers/v4/retire/:do_id',
+            '/proxies/v8/ext-forms/v1/form/create',
+            '/v1/form/create',
+            '/proxies/v8/ext-forms/v1/form/read',
+            '/v1/form/read',
+            '/proxies/v8/ext-forms/v1/form/update',
+            '/v1/form/update',
+            '/proxies/v8/ext-forms/v1/form/list',
+            '/v1/form/list',
+            '/proxies/v8/ext-forms/v1/form/fetchAll',
+            '/v1/form/fetchAll',
             '/proxies/v8/microsite/read/insights',
             '/proxies/v8/microsite/topFeatured/content/search',
             '/proxies/v8/workflow/v2/userWFApplicationFieldsSearch',

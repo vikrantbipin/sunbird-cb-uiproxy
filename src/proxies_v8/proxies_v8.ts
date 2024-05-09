@@ -12,6 +12,7 @@ import {
   proxyAssessmentRead,
   proxyContent,
   proxyContentLearnerVM,
+  proxyCreatorForms,
   proxyCreatorKnowledge,
   proxyCreatorLearner,
   proxyCreatorQML,
@@ -965,3 +966,8 @@ export interface ICohortsUser {
   userLocation: string
   city: string
 }
+
+proxiesV8.use('/ext-forms/*',
+  // tslint:disable-next-line: max-line-length
+  proxyCreatorForms(express.Router())
+)
