@@ -3,7 +3,7 @@ import express from 'express'
 import { axiosRequestConfig } from '../configs/request.config'
 import { CONSTANTS } from '../utils/env'
 import { logError } from '../utils/logger'
-import { proxyCreatorForms, proxyCreatorRoute } from '../utils/proxyCreator'
+import { proxyCreatorFormsPublic, proxyCreatorRoute } from '../utils/proxyCreator'
 import { parichayAuth } from './parichayAuth'
 import { workallocationPublic } from './workallocationPublic'
 import { youtubePlaylist } from './youtubePlaylist'
@@ -109,5 +109,5 @@ publicApiV8.get('/careers/list', async (_, res) => {
 
 publicApiV8.use('/ext-forms/*',
   // tslint:disable-next-line: max-line-length
-  proxyCreatorForms(express.Router())
+  proxyCreatorFormsPublic(express.Router())
 )

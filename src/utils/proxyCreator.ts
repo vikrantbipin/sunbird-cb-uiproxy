@@ -10,6 +10,7 @@ const proxyCreator = (timeout = 10000) => createProxyServer({
   timeout,
 })
 const proxy = createProxyServer({})
+const proxyPublic = createProxyServer({})
 const PROXY_SLUG = '/proxies/v8'
 const PROXY_SLUG_WAT = '/proxies/v8/wat'
 const PROXY_SLUG_FORMS = '/proxies/v8/ext-forms'
@@ -59,6 +60,27 @@ proxy.on('proxyReq', (proxyReq: any, req: any, _res: any, _options: any) => {
     proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData))
     proxyReq.write(bodyData)
   }
+})
+
+// tslint:disable-next-line: no-any
+proxyPublic.on('proxyReq', (proxyReq: any, req: any, _res: any, _options: any) => {
+  logInfo('proxyPublic proxyReqOn method. Adding more headers in request...')
+  // tslint:disable-next-line: no-duplicate-string
+  proxyReq.setHeader('X-Channel-Id', (_.get(req, 'session.rootOrgId')) ? _.get(req, 'session.rootOrgId') : CONSTANTS.X_Channel_Id)
+  // tslint:disable-next-line: max-line-length
+  proxyReq.setHeader('Authorization', CONSTANTS.SB_API_KEY)
+  let rootOrgId = ''
+  if (req.session.hasOwnProperty('rootOrgId')) {
+    rootOrgId = req.session.rootOrgId
+  }
+  proxyReq.setHeader('x-authenticated-user-orgid', rootOrgId)
+
+  let channel = ''
+  if (req.session.hasOwnProperty('channel')) {
+    channel = req.session.channel
+  }
+  proxyReq.setHeader('x-authenticated-user-orgname', channel)
+  proxyReq.setHeader('x-authenticated-user-channel', channel)
 })
 
 // tslint:disable-next-line: no-any
@@ -358,7 +380,20 @@ export function proxyCreatorForms(route: Router, _timeout = 10000): Router {
     console.log('REQ_URL_ORIGINAL proxyCreatorSunbird', req.originalUrl)
     let url = ''
     url = removePrefix(`${PROXY_SLUG_FORMS}`, req.originalUrl)
-    proxyCreator().web(req, res, {
+    proxy.web(req, res, {
+      target: 'http://localhost:3003/' + url,
+    })
+  })
+  return route
+}
+
+export function proxyCreatorFormsPublic(route: Router, _timeout = 10000): Router {
+  route.all('/*', (req, res) => {
+    // tslint:disable-next-line: no-console
+    console.log('REQ_URL_ORIGINAL proxyCreatorSunbird === proxyCreatorFormsPublic', req.originalUrl)
+    let url = ''
+    url = removePrefix(`${PROXY_SLUG_FORMS}`, req.originalUrl)
+    proxyPublic.web(req, res, {
       target: 'http://localhost:3003/' + url,
     })
   })
