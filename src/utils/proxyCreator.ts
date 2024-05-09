@@ -358,7 +358,7 @@ export function proxyCreatorForms(route: Router, _timeout = 10000): Router {
     console.log('REQ_URL_ORIGINAL proxyCreatorSunbird', req.originalUrl)
     let url = ''
     url = removePrefix(`${PROXY_SLUG_FORMS}`, req.originalUrl)
-    proxy.web(req, res, {
+    proxyCreator().web(req, res, {
       target: 'http://localhost:3003/' + url,
     })
   })
