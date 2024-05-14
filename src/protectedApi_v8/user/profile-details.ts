@@ -234,6 +234,13 @@ profileDeatailsApi.post('/createUser', async (req, res) => {
         const sbphoneVerified_ = false
         const sbfirstName_ = req.body.personalDetails.firstName
         const sbphone_ = req.body.personalDetails.phone
+        const sbdob_ = req.body.personalDetails.dob
+        const sbdomicileMedium_ = req.body.personalDetails.domicileMedium
+        const sbgender_ = req.body.personalDetails.gender
+        const sbpincode_ = req.body.personalDetails.pincode
+        const sbcategory_ = req.body.personalDetails.category
+        const sbgroup_ = req.body.personalDetails.group
+        const sbdesignation_ = req.body.personalDetails.designation
         const isEmailRequired = (req.body.personalDetails.isEmailRequired) ? req.body.personalDetails.isEmailRequired : true
         const userRoles = (req.body.personalDetails.roles) ? req.body.personalDetails.roles : undefined
         let sbUserProfile: Partial<ISBUser> = {
@@ -360,12 +367,17 @@ profileDeatailsApi.post('/createUser', async (req, res) => {
                     },
                     mandatoryFieldsExists: false,
                     personalDetails: {
+                        category : sbcategory_,
+                        dob: sbdob_,
+                        domicileMedium: sbdomicileMedium_,
                         firstname: sbfirstName_,
+                        gender: sbgender_,
                         mobile: Number(sbphone_),
                         phoneVerified: sbphoneVerified_,
+                        pinCode: Number(sbpincode_),
                         primaryEmail: sbemail_,
                     },
-                    verifiedKarmayogi: false,
+                    profileStatus: 'NOT-VERIFIED',
                 },
                 userId: sbUserId,
             }
@@ -376,14 +388,48 @@ profileDeatailsApi.post('/createUser', async (req, res) => {
                 sbProfileUpdateReq.profileDetails.personalDetails = _.omit(sbProfileUpdateReq.profileDetails.personalDetails, 'mobile')
             }
 
-            if (req.body.personalDetails.designation) {
+            if (sbdob_ === undefined || sbdob_ === '') {
+                // tslint:disable-next-line: all
+                sbProfileUpdateReq.profileDetails.personalDetails = _.omit(sbProfileUpdateReq.profileDetails.personalDetails, 'dob')
+            }
+            if (sbdomicileMedium_ === undefined || sbdomicileMedium_ === '') {
+                // tslint:disable-next-line: all
+                sbProfileUpdateReq.profileDetails.personalDetails = _.omit(sbProfileUpdateReq.profileDetails.personalDetails, 'domicileMedium')
+            }
+            if (sbpincode_ === undefined || sbpincode_ === '') {
+                // tslint:disable-next-line: all
+                sbProfileUpdateReq.profileDetails.personalDetails = _.omit(sbProfileUpdateReq.profileDetails.personalDetails, 'pinCode')
+            }
+            if (sbgender_ === undefined || sbgender_ === '') {
+                // tslint:disable-next-line: all
+                sbProfileUpdateReq.profileDetails.personalDetails = _.omit(sbProfileUpdateReq.profileDetails.personalDetails, 'gender')
+            }
+            if (sbcategory_ === undefined || sbcategory_ === '') {
+                // tslint:disable-next-line: all
+                sbProfileUpdateReq.profileDetails.personalDetails = _.omit(sbProfileUpdateReq.profileDetails.personalDetails, 'category')
+            }
+            if (req.body.personalDetails.designation || req.body.personalDetails.group) {
                 const arrDesignation = []
-                const objDesignation = {
-                    designation: (req.body.personalDetails.designation) ? req.body.personalDetails.designation :  '',
+                let objDesignation = {
+                    designation: sbdesignation_,
+                    group: sbgroup_,
+                }
+                if (sbdesignation_ === undefined || sbdesignation_ === '') {
+                    objDesignation = _.omit(objDesignation, 'designation')
+                }
+                if (sbgroup_ === undefined || sbgroup_ === '') {
+                  objDesignation = _.omit(objDesignation, 'group')
                 }
                 arrDesignation.push(objDesignation)
                 const profDetailsPropertyName = 'professionalDetails'
-                sbProfileUpdateReq[profDetailsPropertyName] = arrDesignation
+                sbProfileUpdateReq.profileDetails[profDetailsPropertyName] = arrDesignation
+           }
+            if (req.body.personalDetails.tags) {
+               const objAdditionalProperties = {
+                 tag: (req.body.personalDetails.tags) ? req.body.personalDetails.tags :  '',
+               }
+               const additionalPropertiesPropertyName = 'additionalProperties'
+               sbProfileUpdateReq.profileDetails[additionalPropertiesPropertyName] = objAdditionalProperties
             }
 
             const sbUserProfileUpdateResp = await axios({
