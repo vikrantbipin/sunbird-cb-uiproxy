@@ -3571,6 +3571,6 @@ export const API_LIST = {
             '/proxies/v8/demand/content/create',
             '/proxies/v8/demand/content/read/:do_id',
             '/proxies/v8/demand/content/delete/:do_id',
-            '/proxies/v8/demand/content/search'
+            '/proxies/v8/demand/content/search',
            ],
 }
