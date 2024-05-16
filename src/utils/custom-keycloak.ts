@@ -31,7 +31,7 @@ export class CustomKeycloak {
     const middleware = composable(
       keycloak.middleware({
         admin: '/callback',
-        logout: '/reset',
+        logout: '/logout',
       })
     )
     middleware(req, res, next)
@@ -81,6 +81,18 @@ export class CustomKeycloak {
         next(null, 'loggedin')
       }
     })
+  }
+
+  // tslint:disable-next-line: no-any
+  deauthenticatedNew = (reqObj: any) => {
+    delete reqObj.session.userRoles
+    delete reqObj.session.userId
+    delete reqObj.session.keycloakClientId
+    delete reqObj.session.keycloakClientSecret
+    if (reqObj.session) {
+      reqObj.session.destroy()
+    }
+    logInfo(`${process.pid}: User Deauthenticated New`)
   }
 
   // tslint:disable-next-line: no-any
@@ -173,7 +185,7 @@ export class CustomKeycloak {
       getKeycloakConfig(url, realm)
     )
     keycloak.authenticated = this.authenticated
-    keycloak.deauthenticated = this.deauthenticated
+    keycloak.deauthenticated = this.deauthenticatedNew
     return keycloak
   }
 }
