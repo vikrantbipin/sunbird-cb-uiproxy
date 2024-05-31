@@ -218,6 +218,8 @@ const failedToUpdateUser = 'Failed to update user profile data.'
 const unknownError = 'Failed due to unknown reason'
 const failedToCheckMDOLeader = 'Failed to check MDO_LEADER role exist.'
 const errorMDOLeaderExist = 'MDO_LDEADER already exist in org. Can not add another MDO_LEADER.'
+const verifiedStatus = 'VERIFIED'
+const notVerifiedStatus = 'NOT-VERIFIED'
 
 // tslint:disable-next-line: all
 profileDeatailsApi.post('/createUser', async (req, res) => {
@@ -377,6 +379,9 @@ profileDeatailsApi.post('/createUser', async (req, res) => {
                         phoneVerified: sbphoneVerified_,
                         primaryEmail: sbemail_,
                     },
+                    profileDesignationStatus: notVerifiedStatus,
+                    profileGroupStatus: notVerifiedStatus,
+                    profileStatus: notVerifiedStatus,
                 },
                 userId: sbUserId,
             }
@@ -431,11 +436,10 @@ profileDeatailsApi.post('/createUser', async (req, res) => {
                sbProfileUpdateReq.profileDetails[additionalPropertiesPropertyName] = objAdditionalProperties
             }
 
-            const profileStatusPropertyName = 'profileStatus'
             if ((sbdesignation_ !== undefined && sbdesignation_ !== '') && (sbgroup_ !== undefined && sbgroup_ !== '')) {
-              sbProfileUpdateReq.profileDetails[profileStatusPropertyName] = 'VERIFIED'
-            } else {
-              sbProfileUpdateReq.profileDetails[profileStatusPropertyName] = 'NOT-VERIFIED'
+              sbProfileUpdateReq.profileDetails.profileStatus = verifiedStatus
+              sbProfileUpdateReq.profileDetails.profileGroupStatus = verifiedStatus
+              sbProfileUpdateReq.profileDetails.profileDesignationStatus = verifiedStatus
             }
             const sbUserProfileUpdateResp = await axios({
                 ...axiosRequestConfig,
