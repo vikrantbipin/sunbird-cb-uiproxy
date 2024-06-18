@@ -392,7 +392,7 @@ proxiesV8.use('/dashboard/*',
   proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
 )
 // tslint:disable-next-line:max-line-length
-proxiesV8.post(['/user/v1/bulkupload', '/storage/profilePhotoUpload/*', '/workflow/admin/transition/bulkupdate', '/cloud-services/mlcore/v1/files/upload', '/calendar/v1/bulkUpload', '/storage/orgStoreUpload'], (req, res) => {
+proxiesV8.post(['/user/v1/bulkupload', '/storage/profilePhotoUpload/*', '/workflow/admin/transition/bulkupdate', '/cloud-services/mlcore/v1/files/upload', '/calendar/v1/bulkUpload', '/storage/orgStoreUpload', 'workflow/admin/v2/transition/bulkupdate', '/user/v2/bulkupload'], (req, res) => {
   if (req.files && req.files.data) {
     const url = removePrefix('/proxies/v8', req.originalUrl)
     const file: UploadedFile = req.files.data as UploadedFile
@@ -729,6 +729,10 @@ proxiesV8.use('/assessment/save/',
   proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
 )
 
+proxiesV8.use('/assessment/savepoint/',
+  proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
+)
+
 proxiesV8.use('/announcements/*',
   proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
 )
@@ -937,6 +941,16 @@ proxiesV8.use('/orgBookmark/*',
   proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
 )
 
+proxiesV8.use('/cios/*',
+  proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
+)
+
+proxiesV8.use('/ciosIntegration/*',
+  proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
+)
+proxiesV8.use('/tenders/*',
+  proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
+)
 export interface IUserProfile {
   channel: string
   firstName: string
