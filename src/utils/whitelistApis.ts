@@ -3207,6 +3207,38 @@ export const API_LIST = {
                 ROLE.SPV_PUBLISHER,
             ],
         },
+        // tslint:disable-next-line: all
+        '/proxies/v8/tenders/v4/read/:do_id': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.PUBLIC,
+            ],
+        },
+        // tslint:disable-next-line: all
+        '/proxies/v8/tenders/v4/publish/:do_id': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.SPV_ADMIN,
+            ],
+        },
+        // tslint:disable-next-line: all
+        '/proxies/v8/tenders/v4/create': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.SPV_ADMIN,
+            ],
+        },
+        // tslint:disable-next-line: all
+        '/proxies/v8/tenders/v4/update/:do_id': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.SPV_ADMIN,
+            ],
+        },
         '/proxies/v8/user/assessment/v5/result': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
@@ -3466,34 +3498,6 @@ export const API_LIST = {
               ROLE.SPV_ADMIN,
               ROLE.MDO_ADMIN,
               ROLE.CBP_ADMIN,
-            ],
-        },
-          '/proxies/v8/tenders/v4/read/:do_id': {
-            checksNeeded: [CHECK.ROLE],
-            // tslint:disable-next-line: object-literal-sort-keys
-            ROLE_CHECK: [
-                ROLE.PUBLIC,
-            ],
-        },
-        '/proxies/v8/tenders/v4/publish/:do_id': {
-            checksNeeded: [CHECK.ROLE],
-            // tslint:disable-next-line: object-literal-sort-keys
-            ROLE_CHECK: [
-                ROLE.SPV_ADMIN,
-            ],
-        },
-        '/proxies/v8/tenders/v4/create': {
-            checksNeeded: [CHECK.ROLE],
-            // tslint:disable-next-line: object-literal-sort-keys
-            ROLE_CHECK: [
-                ROLE.SPV_ADMIN,
-            ],
-        },
-        '/proxies/v8/tenders/v4/update/:do_id': {
-            checksNeeded: [CHECK.ROLE],
-            // tslint:disable-next-line: object-literal-sort-keys
-            ROLE_CHECK: [
-                ROLE.SPV_ADMIN,
             ],
         },
         '/proxies/v8/user/v2/bulkupload': {
@@ -3936,6 +3940,10 @@ export const API_LIST = {
             '/proxies/v8/playList/update',
             '/proxies/v8/playList/search',
             '/proxies/v8/playList/delete/:do_id',
+            '/proxies/v8/tenders/v4/read/:do_id',
+            '/proxies/v8/tenders/v4/publish/:do_id',
+            '/proxies/v8/tenders/v4/create',
+            '/proxies/v8/tenders/v4/update/:do_id',
             '/proxies/v8/user/assessment/v5/result',
             '/proxies/v8/user/assessment/v5/retake/:id',
             '/protected/v8/user/evaluate/assessment/submit/v5',
