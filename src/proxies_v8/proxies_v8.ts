@@ -961,7 +961,7 @@ proxiesV8.use('/v1/search/competenciesByOrg',
   proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
 )
 
-proxiesV8.use('/designationsUpload/*',
+proxiesV8.use('/designation/*',
   proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
 )
 
