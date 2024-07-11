@@ -3567,7 +3567,7 @@ export const API_LIST = {
                         ROLE.PUBLIC,
                    ],
         },
-        '/proxies/v8/designationsUpload/upload': {
+        '/proxies/v8/designation/upload': {
                   checksNeeded: [CHECK.ROLE],
                   // tslint:disable-next-line: object-literal-sort-keys
                    ROLE_CHECK: [
@@ -4034,6 +4034,6 @@ export const API_LIST = {
             '/proxies/v8/framework/v1/term/update/:id',
             '/proxies/v8/framework/v1/read/:id',
             '/proxies/v8/v1/search/competenciesByOrg/:id',
-            '/proxies/v8/designationsUpload/upload',
+            '/proxies/v8/designation/upload',
            ],
 }
