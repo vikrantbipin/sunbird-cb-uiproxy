@@ -3574,6 +3574,44 @@ export const API_LIST = {
                     ROLE.SPV_ADMIN,
                    ],
         },
+        '/proxies/v8/designation/read/:id': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.PUBLIC,
+                   ],
+        },
+        '/proxies/v8/designation/update': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.SPV_ADMIN,
+                    ROLE.MDO_ADMIN,
+                   ],
+        },
+        '/proxies/v8/designation/create': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.SPV_ADMIN,
+                    ROLE.MDO_ADMIN,
+                   ],
+        },
+        '/proxies/v8/designation/delete/:id': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.SPV_ADMIN,
+                    ROLE.MDO_ADMIN,
+                   ],
+        },
+        '/proxies/v8/designation/search': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.PUBLIC,
+                   ],
+        },
     },
     URL_PATTERN:
         [
@@ -4035,5 +4073,10 @@ export const API_LIST = {
             '/proxies/v8/framework/v1/read/:id',
             '/proxies/v8/v1/search/competenciesByOrg/:id',
             '/proxies/v8/designation/upload',
+            '/proxies/v8/designation/read/:id',
+            '/proxies/v8/designation/update',
+            '/proxies/v8/designation/create',
+            '/proxies/v8/designation/delete/:id',
+            '/proxies/v8/designation/search',
            ],
 }
