@@ -1034,3 +1034,7 @@ proxiesV8.use('/ext-forms/*',
   // tslint:disable-next-line: max-line-length
   proxyCreatorForms(express.Router())
 )
+
+proxiesV8.use('/cios-enroll/*',
+  proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
+)
