@@ -3642,6 +3642,49 @@ export const API_LIST = {
                       ROLE.PUBLIC,
                     ],
         },
+        '/proxies/v8/competencyArea/upload': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.SPV_ADMIN,
+                   ],
+        },
+        '/proxies/v8/competencyArea/search': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.PUBLIC,
+                   ],
+        },
+        
+        '/proxies/v8/competencyTheme/upload': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.SPV_ADMIN,
+                   ],
+        },
+        '/proxies/v8/competencyTheme/search': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.PUBLIC,
+                   ],
+        },
+        '/proxies/v8/competencySubTheme/upload': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.SPV_ADMIN,
+                   ],
+        },
+        '/proxies/v8/competencySubTheme/search': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.PUBLIC,
+                   ],
+        },
     },
     URL_PATTERN:
         [
@@ -4112,5 +4155,11 @@ export const API_LIST = {
             '/proxies/v8/cios-enroll/v1/create',
             '/proxies/v8/cios-enroll/v1/listbyuserid/:id',
             '/proxies/v8/cios-enroll/v1/readby/useridcourseId/:userId/:courseId',
+            '/proxies/v8/competencyArea/upload',
+            '/proxies/v8/competencyArea/search',
+            '/proxies/v8/competencyTheme/upload',
+            '/proxies/v8/competencyTheme/search',
+            '/proxies/v8/competencySubTheme/upload',
+            '/proxies/v8/competencySubTheme/search',
            ],
 }
