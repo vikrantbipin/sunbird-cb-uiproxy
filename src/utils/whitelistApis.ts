@@ -3664,7 +3664,7 @@ export const API_LIST = {
                     ROLE.PUBLIC,
                    ],
         },
-        
+
         '/proxies/v8/competencyTheme/upload': {
                   checksNeeded: [CHECK.ROLE],
                   // tslint:disable-next-line: object-literal-sort-keys
