@@ -3295,6 +3295,7 @@ export const API_LIST = {
             ROLE_CHECK: [
                 ROLE.MDO_ADMIN,
                 ROLE.SPV_ADMIN,
+                ROLE.MDO_LEADER,
             ],
         },
         '/proxies/v8/interest/v1/read/:id': {
@@ -3561,6 +3562,13 @@ export const API_LIST = {
                    ],
         },
         '/proxies/v8/v1/search/competenciesByOrg/:id': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                        ROLE.PUBLIC,
+                   ],
+        },
+        '/proxies/v8/user/v1/email/approvedDomains': {
                   checksNeeded: [CHECK.ROLE],
                   // tslint:disable-next-line: object-literal-sort-keys
                    ROLE_CHECK: [
@@ -4145,6 +4153,7 @@ export const API_LIST = {
             '/proxies/v8/framework/v1/term/update/:id',
             '/proxies/v8/framework/v1/read/:id',
             '/proxies/v8/v1/search/competenciesByOrg/:id',
+            '/proxies/v8/user/v1/email/approvedDomains',
             '/proxies/v8/designation/upload',
             '/proxies/v8/designation/read/:id',
             '/proxies/v8/designation/update',
