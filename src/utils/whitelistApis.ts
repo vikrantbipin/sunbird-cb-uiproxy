@@ -3824,14 +3824,14 @@ export const API_LIST = {
                       ROLE.PUBLIC,
                     ],
         },
-        '/proxies/v8/cios-enroll/v1/listbyuserid/:id': {
+        '/proxies/v8/cios-enroll/v1/courselist/byuserid': {
                     checksNeeded: [CHECK.ROLE],
                     // tslint:disable-next-line: object-literal-sort-keys
                     ROLE_CHECK: [
                       ROLE.PUBLIC,
                     ],
         },
-        '/proxies/v8/cios-enroll/v1/readby/useridcourseId/:userId/:courseId': {
+        '/proxies/v8/cios-enroll/v1/readby/useridcourseid/:courseid': {
                     checksNeeded: [CHECK.ROLE],
                     // tslint:disable-next-line: object-literal-sort-keys
                     ROLE_CHECK: [
@@ -3879,6 +3879,127 @@ export const API_LIST = {
                    ROLE_CHECK: [
                     ROLE.PUBLIC,
                    ],
+        },
+        '/proxies/v8/competencyArea/create': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.SPV_ADMIN,
+                    ROLE.MDO_ADMIN,
+                   ],
+        },
+        '/proxies/v8/competencyArea/delete/:id': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.SPV_ADMIN,
+                    ROLE.MDO_ADMIN,
+                   ],
+        },
+        '/proxies/v8/competencyArea/update': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.SPV_ADMIN,
+                    ROLE.MDO_ADMIN,
+                   ],
+        },
+        '/proxies/v8/competencyArea/read/:id': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.PUBLIC,
+                   ],
+        },
+        '/proxies/v8/competencyTheme/create': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.SPV_ADMIN,
+                    ROLE.MDO_ADMIN,
+                   ],
+        },
+        '/proxies/v8/competencyTheme/delete/:id': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.SPV_ADMIN,
+                    ROLE.MDO_ADMIN,
+                   ],
+        },
+        '/proxies/v8/competencyTheme/update': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.SPV_ADMIN,
+                    ROLE.MDO_ADMIN,
+                   ],
+        },
+        '/proxies/v8/competencyTheme/read/:id': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.PUBLIC,
+                   ],
+        },
+        '/proxies/v8/competencySubTheme/create': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.SPV_ADMIN,
+                    ROLE.MDO_ADMIN,
+                   ],
+        },
+        '/proxies/v8/competencySubTheme/delete/:id': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.SPV_ADMIN,
+                    ROLE.MDO_ADMIN,
+                   ],
+        },
+        '/proxies/v8/competencySubTheme/update': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.SPV_ADMIN,
+                    ROLE.MDO_ADMIN,
+                   ],
+        },
+        '/proxies/v8/competencySubTheme/read/:id': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.PUBLIC,
+                   ],
+        },
+        '/proxies/v8/halloffame/top/learners': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                    ROLE.PUBLIC,
+                   ],
+        },
+        '/proxies/v8/competencySubTheme/create/term': {
+                          checksNeeded: [CHECK.ROLE],
+                          // tslint:disable-next-line: object-literal-sort-keys
+                           ROLE_CHECK: [
+                            ROLE.MDO_ADMIN,
+                           ],
+        },
+        '/proxies/v8/competencyTheme/create/term': {
+                          checksNeeded: [CHECK.ROLE],
+                          // tslint:disable-next-line: object-literal-sort-keys
+                           ROLE_CHECK: [
+                            ROLE.MDO_ADMIN,
+                           ],
+        },
+         '/proxies/v8/designation/create/term': {
+                          checksNeeded: [CHECK.ROLE],
+                          // tslint:disable-next-line: object-literal-sort-keys
+                           ROLE_CHECK: [
+                            ROLE.MDO_ADMIN,
+                           ],
         },
     },
     URL_PATTERN:
@@ -4367,8 +4488,8 @@ export const API_LIST = {
             '/proxies/v8/mentoring/v1/users/list',
             '/proxies/v8/ciosIntegration/v1/loadContentProgressFromExcel',
             '/proxies/v8/cios-enroll/v1/create',
-            '/proxies/v8/cios-enroll/v1/listbyuserid/:id',
-            '/proxies/v8/cios-enroll/v1/readby/useridcourseId/:userId/:courseId',
+            '/proxies/v8/cios-enroll/v1/courselist/byuserid',
+            '/proxies/v8/cios-enroll/v1/readby/useridcourseid/:courseid',
             '/proxies/v8/user/v1/email/approvedDomains',
             '/proxies/v8/designation/upload',
             '/proxies/v8/designation/read/:id',
@@ -4383,5 +4504,21 @@ export const API_LIST = {
             '/proxies/v8/competencyTheme/search',
             '/proxies/v8/competencySubTheme/upload',
             '/proxies/v8/competencySubTheme/search',
+            '/proxies/v8/competencyArea/create',
+            '/proxies/v8/competencyArea/delete/:id',
+            '/proxies/v8/competencyArea/update',
+            '/proxies/v8/competencyArea/read/:id',
+            '/proxies/v8/competencyTheme/create',
+            '/proxies/v8/competencyTheme/delete/:id',
+            '/proxies/v8/competencyTheme/update',
+            '/proxies/v8/competencyTheme/read/:id',
+            '/proxies/v8/competencySubTheme/create',
+            '/proxies/v8/competencySubTheme/delete/:id',
+            '/proxies/v8/competencySubTheme/update',
+            '/proxies/v8/competencySubTheme/read/:id',
+            '/proxies/v8/halloffame/top/learners',
+            '/proxies/v8/competencySubTheme/create/term',
+            '/proxies/v8/competencyTheme/create/term',
+            '/proxies/v8/designation/create/term'
            ],
 }
