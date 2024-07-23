@@ -3177,6 +3177,8 @@ export const API_LIST = {
                 ROLE.MDO_ADMIN,
                 ROLE.MDO_LEADER,
                 ROLE.SPV_PUBLISHER,
+                ROLE.CONTENT_CREATOR,
+                ROLE.CBP_ADMIN,
             ],
         },
         '/proxies/v8/playList/update': {
@@ -3188,6 +3190,7 @@ export const API_LIST = {
                 ROLE.MDO_LEADER,
                 ROLE.SPV_PUBLISHER,
                 ROLE.CONTENT_CREATOR,
+                ROLE.CBP_ADMIN,
             ],
         },
         '/proxies/v8/playList/search': {
@@ -3205,6 +3208,8 @@ export const API_LIST = {
                 ROLE.MDO_ADMIN,
                 ROLE.MDO_LEADER,
                 ROLE.SPV_PUBLISHER,
+                ROLE.CONTENT_CREATOR,
+                ROLE.CBP_ADMIN,
             ],
         },
         // tslint:disable-next-line: all
@@ -3431,6 +3436,8 @@ export const API_LIST = {
                 ROLE.MDO_ADMIN,
                 ROLE.MDO_LEADER,
                 ROLE.SPV_PUBLISHER,
+                ROLE.CONTENT_CREATOR,
+                ROLE.CBP_ADMIN,
             ],
         },
         '/proxies/v8/playList/v2/update': {
@@ -3442,6 +3449,7 @@ export const API_LIST = {
                 ROLE.MDO_LEADER,
                 ROLE.SPV_PUBLISHER,
                 ROLE.CONTENT_CREATOR,
+                ROLE.CBP_ADMIN,
             ],
         },
         '/proxies/v8/playList/v2/read/:id/:playListId/:orgId': {
@@ -3735,7 +3743,7 @@ export const API_LIST = {
                         ROLE.PUBLIC,
                     ],
          },
-        '/proxies/v8/mentoring/v1/mentees/sessions': {
+        '/proxies/v8/mentoring/v1/mentees/homeFeed': {
                     checksNeeded: [CHECK.ROLE],
                     // tslint:disable-next-line: object-literal-sort-keys
                     ROLE_CHECK: [
@@ -3985,6 +3993,7 @@ export const API_LIST = {
                           // tslint:disable-next-line: object-literal-sort-keys
                            ROLE_CHECK: [
                             ROLE.MDO_ADMIN,
+                            ROLE.SPV_ADMIN,
                            ],
         },
         '/proxies/v8/competencyTheme/create/term': {
@@ -3992,6 +4001,7 @@ export const API_LIST = {
                           // tslint:disable-next-line: object-literal-sort-keys
                            ROLE_CHECK: [
                             ROLE.MDO_ADMIN,
+                            ROLE.SPV_ADMIN,
                            ],
         },
          '/proxies/v8/designation/create/term': {
@@ -3999,7 +4009,23 @@ export const API_LIST = {
                           // tslint:disable-next-line: object-literal-sort-keys
                            ROLE_CHECK: [
                             ROLE.MDO_ADMIN,
+                            ROLE.SPV_ADMIN,
                            ],
+        },
+         '/proxies/v8/org/framework/read': {
+                                 checksNeeded: [CHECK.ROLE],
+                                 // tslint:disable-next-line: object-literal-sort-keys
+                                 ROLE_CHECK: [
+                                  ROLE.MDO_ADMIN,
+                                 ],
+        },
+        '/proxies/v8/user/v3/search': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
+            ],
         },
     },
     URL_PATTERN:
@@ -4484,7 +4510,7 @@ export const API_LIST = {
             '/proxies/v8/mentoring/v1/mentors/upcomingSessions/:id',
             '/proxies/v8/mentoring/v1/feedback/submit/:id',
             '/proxies/v8/mentoring/v1/cloud-services/getSignedUrl',
-            '/proxies/v8/mentoring/v1/mentees/sessions',
+            '/proxies/v8/mentoring/v1/mentees/homeFeed',
             '/proxies/v8/mentoring/v1/users/list',
             '/proxies/v8/ciosIntegration/v1/loadContentProgressFromExcel',
             '/proxies/v8/cios-enroll/v1/create',
@@ -4519,6 +4545,8 @@ export const API_LIST = {
             '/proxies/v8/halloffame/top/learners',
             '/proxies/v8/competencySubTheme/create/term',
             '/proxies/v8/competencyTheme/create/term',
-            '/proxies/v8/designation/create/term'
+            '/proxies/v8/designation/create/term',
+            '/proxies/v8/org/framework/read',
+            '/proxies/v8/user/v3/search',
            ],
 }
