@@ -3981,7 +3981,7 @@ export const API_LIST = {
                     ROLE.PUBLIC,
                    ],
         },
-        '/proxies/v8/halloffame/top/learners': {
+        '/proxies/v8/halloffame/top/learners/:ministryOrgId': {
                   checksNeeded: [CHECK.ROLE],
                   // tslint:disable-next-line: object-literal-sort-keys
                    ROLE_CHECK: [
@@ -4025,7 +4025,16 @@ export const API_LIST = {
             ROLE_CHECK: [
                 ROLE.MDO_ADMIN,
                 ROLE.MDO_LEADER,
+                ROLE.SPV_ADMIN,
             ],
+        },
+        '/proxies/v8/framework/v1/term/retire': {
+                              checksNeeded: [CHECK.ROLE],
+                              // tslint:disable-next-line: object-literal-sort-keys
+                               ROLE_CHECK: [
+                                 ROLE.SPV_ADMIN,
+                                 ROLE.MDO_ADMIN,
+                              ],
         },
     },
     URL_PATTERN:
@@ -4542,11 +4551,12 @@ export const API_LIST = {
             '/proxies/v8/competencySubTheme/delete/:id',
             '/proxies/v8/competencySubTheme/update',
             '/proxies/v8/competencySubTheme/read/:id',
-            '/proxies/v8/halloffame/top/learners',
+            '/proxies/v8/halloffame/top/learners/:ministryOrgId',
             '/proxies/v8/competencySubTheme/create/term',
             '/proxies/v8/competencyTheme/create/term',
             '/proxies/v8/designation/create/term',
             '/proxies/v8/org/framework/read',
             '/proxies/v8/user/v3/search',
+            '/proxies/v8/framework/v1/term/retire',
            ],
 }
