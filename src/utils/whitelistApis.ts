@@ -3244,6 +3244,13 @@ export const API_LIST = {
                 ROLE.SPV_ADMIN,
             ],
         },
+        '/proxies/v8/cloud-services/mlcore/v1/files/download': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+                ROLE_CHECK: [
+                ROLE.SPV_ADMIN,
+            ],
+        },      
         '/proxies/v8/user/assessment/v5/result': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
@@ -4488,6 +4495,7 @@ export const API_LIST = {
             '/proxies/v8/tenders/v4/publish/:do_id',
             '/proxies/v8/tenders/v4/create',
             '/proxies/v8/tenders/v4/update/:do_id',
+            '/proxies/v8/cloud-services/mlcore/v1/files/download',
             '/proxies/v8/user/assessment/v5/result',
             '/proxies/v8/user/assessment/v5/retake/:id',
             '/protected/v8/user/evaluate/assessment/submit/v5',
