@@ -10,6 +10,7 @@ import {
   ilpProxyCreatorRoute,
   // proxyCreatorDiscussion,
   proxyAssessmentRead,
+  proxyAssessmentReadV2,
   proxyContent,
   proxyContentLearnerVM,
   proxyCreatorForms,
@@ -390,8 +391,9 @@ proxiesV8.use('/org/*',
 proxiesV8.use('/dashboard/*',
   proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
 )
+
 // tslint:disable-next-line:max-line-length
-proxiesV8.post(['/user/v1/bulkupload', '/storage/profilePhotoUpload/*', '/workflow/admin/transition/bulkupdate', '/cloud-services/mlcore/v1/files/upload', '/calendar/v1/bulkUpload', '/storage/orgStoreUpload'], (req, res) => {
+proxiesV8.post(['/user/v1/bulkupload', '/storage/profilePhotoUpload/*', '/workflow/admin/transition/bulkupdate', '/cloud-services/mlcore/v1/files/upload', '/calendar/v1/bulkUpload', '/storage/orgStoreUpload', '/workflow/admin/v2/bulkupdate/transition', '/user/v2/bulkupload'], (req, res) => {
   if (req.files && req.files.data) {
     const url = removePrefix('/proxies/v8', req.originalUrl)
     const file: UploadedFile = req.files.data as UploadedFile
@@ -709,6 +711,33 @@ proxiesV8.use('/demand/content/*',
 proxiesV8.use('/playList/*',
   proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
 )
+
+proxiesV8.use('/question/v5/read',
+  // tslint:disable-next-line: max-line-length
+  proxyQuestionRead(express.Router(), `${CONSTANTS.KONG_API_BASE}` + '/player/question/v5/list')
+)
+
+proxiesV8.use('/assessment/v5/read/*',
+  // tslint:disable-next-line: max-line-length
+  proxyAssessmentReadV2(express.Router(), `${CONSTANTS.KONG_API_BASE}` + '/player/questionset/v5/hierarchy')
+)
+
+proxiesV8.use('/interest/*',
+  proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
+)
+
+proxiesV8.use('/assessment/save/',
+  proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
+)
+
+proxiesV8.use('/assessment/savepoint/',
+  proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
+)
+
+proxiesV8.use('/announcements/*',
+  proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
+)
+
 function removePrefix(prefix: string, s: string) {
   return s.substr(prefix.length)
 }
@@ -909,9 +938,29 @@ proxiesV8.use('/careers/*',
   proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
 )
 
+proxiesV8.use('/orgBookmark/*',
+  proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
+)
+
+proxiesV8.use('/cios/*',
+  proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
+)
+
+proxiesV8.use('/ciosIntegration/*',
+  proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
+)
 proxiesV8.use('/tenders/*',
   proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
 )
+
+proxiesV8.use('/framework/*',
+  proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
+)
+
+proxiesV8.use('/v1/search/competenciesByOrg',
+  proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
+)
+
 export interface IUserProfile {
   channel: string
   firstName: string
