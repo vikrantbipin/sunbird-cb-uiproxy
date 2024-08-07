@@ -3231,6 +3231,13 @@ export const API_LIST = {
                 ROLE.SPV_ADMIN,
             ],
         },
+        '/proxies/v8/cloud-services/mlcore/v1/files/download': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+                ROLE_CHECK: [
+                ROLE.SPV_ADMIN,
+            ],
+        },      
     },
     URL_PATTERN:
         [
@@ -3645,5 +3652,6 @@ export const API_LIST = {
             '/proxies/v8/tenders/v4/publish/:do_id',
             '/proxies/v8/tenders/v4/create',
             '/proxies/v8/tenders/v4/update/:do_id',
+            '/proxies/v8/cloud-services/mlcore/v1/files/download',
            ],
 }
