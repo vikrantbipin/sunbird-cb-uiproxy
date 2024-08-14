@@ -3332,6 +3332,7 @@ export const API_LIST = {
                 ROLE.MDO_LEADER,
                 ROLE.SPV_ADMIN,
                 ROLE.CONTENT_CREATOR,
+                ROLE.SPV_PUBLISHER,
               ],
         },
         '/proxies/v8/orgBookmark/v1/create': {
