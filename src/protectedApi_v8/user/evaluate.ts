@@ -11,8 +11,11 @@ const API_END_POINTS = {
   assessmentSubmitV3: `${CONSTANTS.KONG_API_BASE}/v3/user`,
   assessmentSubmitV4: `${CONSTANTS.KONG_API_BASE}/v4/user`,
   assessmentSubmitV5: `${CONSTANTS.KONG_API_BASE}/v5/user`,
+  assessmentSubmitV6: `${CONSTANTS.KONG_API_BASE}/v6/user`,
   iapSubmitAssessment: `${CONSTANTS.SB_EXT_API_BASE_2}/v3/iap-assessment`,
   postAssessment: `${CONSTANTS.POST_ASSESSMENT_BASE}/lmsapi/v1/post_assessment`,
+  userOrgId: 'x-authenticated-user-orgid',
+  userToken: 'x-authenticated-user-token',
 }
 export const evaluateApi = Router()
 
@@ -37,7 +40,7 @@ evaluateApi.post('/assessment/submit/v2', async (req, res) => {
         rootOrg,
         userId,
         // tslint:disable-next-line: no-duplicate-string
-        'x-authenticated-user-token': extractUserToken(req),
+        userToken: extractUserToken(req),
       },
       method: 'POST',
       url,
@@ -66,7 +69,7 @@ evaluateApi.post('/assessment/submit/v3', async (req, res) => {
         Authorization: CONSTANTS.SB_API_KEY,
         userId,
         // tslint:disable-next-line: no-duplicate-string
-        'x-authenticated-user-token': extractUserToken(req),
+        userToken: extractUserToken(req),
       },
       method: 'POST',
       url,
@@ -157,9 +160,9 @@ evaluateApi.post('/assessment/submit/v4', async (req, res) => {
       headers: {
         Authorization: CONSTANTS.SB_API_KEY,
         userId,
-        'x-authenticated-user-orgid': rootOrgId,
+        userOrgId: rootOrgId,
         // tslint:disable-next-line: no-duplicate-string
-        'x-authenticated-user-token': extractUserToken(req),
+        userToken: extractUserToken(req),
       },
       method: 'POST',
       url,
@@ -192,9 +195,45 @@ evaluateApi.post('/assessment/submit/v4', async (req, res) => {
         headers: {
           Authorization: CONSTANTS.SB_API_KEY,
           userId,
-          'x-authenticated-user-orgid': rootOrgId,
+          userOrgId: rootOrgId,
           // tslint:disable-next-line: no-duplicate-string
-          'x-authenticated-user-token': extractUserToken(req),
+          userToken: extractUserToken(req),
+        },
+        method: 'POST',
+        url,
+      })
+      res.status(response.status).send(response.data)
+    } catch (error) {
+      res.status((error && error.response && error.response.status) || 500).send(
+        (error && error.response && error.response.data) || {
+          error: GENERAL_ERR_MSG,
+        }
+      )
+    }
+  })
+
+  evaluateApi.post('/assessment/submit/v6', async (req, res) => {
+    try {
+      const userId = extractUserIdFromRequest(req)
+      const url = `${API_END_POINTS.assessmentSubmitV6}/assessment/submit`
+      const requestBody = {
+        ...req.body,
+      }
+      let rootOrgId = ''
+      // tslint:disable-next-line
+      if (typeof req.session != "undefined" && typeof req.session.rootOrgId != "undefined") {
+        // tslint:disable-next-line
+        rootOrgId = req.session.rootOrgId
+      }
+      const response = await axios({
+        ...axiosRequestConfig,
+        data: requestBody,
+        headers: {
+          Authorization: CONSTANTS.SB_API_KEY,
+          userId,
+          userOrgId: rootOrgId,
+          // tslint:disable-next-line: no-duplicate-string
+          userToken: extractUserToken(req),
         },
         method: 'POST',
         url,
