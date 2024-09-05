@@ -20,6 +20,7 @@ const API_END_POINTS = {
     userWfFieldsSearch: `${CONSTANTS.KONG_API_BASE}/workflow/getUserWFApplicationFields`,
     userWfSearch: `${CONSTANTS.KONG_API_BASE}/workflow/getUserWF`,
     workflowProcess: (wfId: string) => `${CONSTANTS.KONG_API_BASE}/workflow/workflowProcess/${wfId}`,
+    profileApprovalSearch: `${CONSTANTS.KONG_API_BASE}/workflow/profile/approvalRequest/search`, 
 }
 
 export const workflowHandlerApi = Router()
@@ -298,3 +299,37 @@ workflowHandlerApi.post('/userWFApplicationFieldsSearch', async (req, res) => {
         )
     }
 })
+
+workflowHandlerApi.post('/profileApprovalSearch', async (req, res) => {
+    try {
+        const rootOrgValue = req.headers.rootorg
+        const orgValue = req.headers.org
+        if (!rootOrgValue || !orgValue) {
+            res.status(400).send(ERROR.ERROR_NO_ORG_DATA)
+            return
+        }
+        const response = await axios.post(
+            API_END_POINTS.profileApprovalSearch,
+            req.body,
+            {
+                ...axiosRequestConfig,
+                headers: {
+                    Authorization: CONSTANTS.SB_API_KEY,
+                    org: orgValue,
+                    rootOrg: rootOrgValue,
+                     // tslint:disable-next-line: all
+                     'x-authenticated-user-token': extractUserToken(req),
+                },
+            }
+        )
+        res.status(response.status).send(response.data)
+    } catch (err) {
+        logError(failedToProcess + err)
+        res.status((err && err.response && err.response.status) || 500).send(
+            (err && err.response && err.response.data) || {
+                error: unknownError,
+            }
+        )
+    }
+})
+
