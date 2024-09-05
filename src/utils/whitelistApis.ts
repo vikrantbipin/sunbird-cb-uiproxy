@@ -4192,22 +4192,13 @@ export const API_LIST = {
                        ROLE.CBP_ADMIN,
                    ],
         },
-        '/proxies/v8/serviceregistry/api/v1/callExternalApi': {
+        '/proxies/v8/serviceregistry/v1/callExternalApi': {
                 checksNeeded: [CHECK.ROLE],
                 // tslint:disable-next-line: object-literal-sort-keys
                 ROLE_CHECK: [
                   ROLE.SPV_ADMIN,
                   ROLE.MDO_ADMIN,
                   ROLE.CBP_ADMIN,
-                ],
-        },
-        '/proxies/v8/serviceregistry/api/v1/callBackForToken': {
-                checksNeeded: [CHECK.ROLE],
-                // tslint:disable-next-line: object-literal-sort-keys
-                ROLE_CHECK: [
-                    ROLE.SPV_ADMIN,
-                    ROLE.MDO_ADMIN,
-                    ROLE.CBP_ADMIN,
                 ],
         },
         '/proxies/v8/serviceregistry/config/create': {
@@ -4788,8 +4779,7 @@ export const API_LIST = {
             '/proxies/v8/storage/v1/uploadCiosIcon',
             '/proxies/v8/storage/v1/uploadCiosContract',
             '/proxies/v8/storage/v1/downloadCiosContract/:fileName',
-            '/proxies/v8/serviceregistry/api/v1/callExternalApi',
-            '/proxies/v8/serviceregistry/api/v1/callBackForToken',
+            '/proxies/v8/serviceregistry/v1/callExternalApi',
             '/proxies/v8/serviceregistry/config/create',
             '/proxies/v8/serviceregistry/config/delete/:id',
             '/proxies/v8/serviceregistry/config/search',
