@@ -4192,6 +4192,51 @@ export const API_LIST = {
                        ROLE.CBP_ADMIN,
                    ],
         },
+        '/proxies/v8/serviceregistry/v1/callExternalApi': {
+                checksNeeded: [CHECK.ROLE],
+                // tslint:disable-next-line: object-literal-sort-keys
+                ROLE_CHECK: [
+                  ROLE.SPV_ADMIN,
+                  ROLE.MDO_ADMIN,
+                  ROLE.CBP_ADMIN,
+                ],
+        },
+        '/proxies/v8/serviceregistry/config/create': {
+                      checksNeeded: [CHECK.ROLE],
+                      // tslint:disable-next-line: object-literal-sort-keys
+                      ROLE_CHECK: [
+                          ROLE.SPV_ADMIN,
+                          ROLE.MDO_ADMIN,
+                          ROLE.CBP_ADMIN,
+                      ],
+        },
+        '/proxies/v8/serviceregistry/config/delete/:id': {
+                    checksNeeded: [CHECK.ROLE],
+                    // tslint:disable-next-line: object-literal-sort-keys
+                    ROLE_CHECK: [
+                       ROLE.SPV_ADMIN,
+                       ROLE.MDO_ADMIN,
+                       ROLE.CBP_ADMIN,
+                    ],
+        },
+        '/proxies/v8/serviceregistry/config/search': {
+                    checksNeeded: [CHECK.ROLE],
+                    // tslint:disable-next-line: object-literal-sort-keys
+                    ROLE_CHECK: [
+                      ROLE.SPV_ADMIN,
+                      ROLE.MDO_ADMIN,
+                      ROLE.CBP_ADMIN,
+                    ],
+        },
+        '/proxies/v8/serviceregistry/config/fetch': {
+                    checksNeeded: [CHECK.ROLE],
+                    // tslint:disable-next-line: object-literal-sort-keys
+                    ROLE_CHECK: [
+                      ROLE.SPV_ADMIN,
+                      ROLE.MDO_ADMIN,
+                      ROLE.CBP_ADMIN,
+                    ],
+      },
     },
     URL_PATTERN:
         [
@@ -4734,5 +4779,10 @@ export const API_LIST = {
             '/proxies/v8/storage/v1/uploadCiosIcon',
             '/proxies/v8/storage/v1/uploadCiosContract',
             '/proxies/v8/storage/v1/downloadCiosContract/:fileName',
+            '/proxies/v8/serviceregistry/v1/callExternalApi',
+            '/proxies/v8/serviceregistry/config/create',
+            '/proxies/v8/serviceregistry/config/delete/:id',
+            '/proxies/v8/serviceregistry/config/search',
+            '/proxies/v8/serviceregistry/config/fetch',
            ],
 }
