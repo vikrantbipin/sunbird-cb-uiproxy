@@ -20,7 +20,7 @@ const API_END_POINTS = {
     userWfFieldsSearch: `${CONSTANTS.KONG_API_BASE}/workflow/getUserWFApplicationFields`,
     userWfSearch: `${CONSTANTS.KONG_API_BASE}/workflow/getUserWF`,
     workflowProcess: (wfId: string) => `${CONSTANTS.KONG_API_BASE}/workflow/workflowProcess/${wfId}`,
-    profileApprovalSearch: `${CONSTANTS.KONG_API_BASE}/workflow/profile/approvalRequest/search`, 
+    profileApprovalSearch: `${CONSTANTS.KONG_API_BASE}/workflow/profile/approvalRequest/search`,
 }
 
 export const workflowHandlerApi = Router()
@@ -332,4 +332,4 @@ workflowHandlerApi.post('/profileApprovalSearch', async (req, res) => {
         )
     }
 })
-
+
