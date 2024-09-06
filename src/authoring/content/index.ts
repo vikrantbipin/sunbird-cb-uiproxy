@@ -281,7 +281,7 @@ authApi.get('/readBatch/:batchId', async (req: Request, res: Response) => {
 
 authApi.post('/batch/:key', async (req: Request, res: Response) => {
   try {
-    const key = req.params.key as string
+    const key = req.params.key
     let targetUrl = ''
     switch (key) {
       case 'create':
@@ -341,7 +341,7 @@ authApi.post('/batch/:key', async (req: Request, res: Response) => {
 
 authApi.patch('/batch/:key', async (req: Request, res: Response) => {
   try {
-    const key = req.params.key as string
+    const key = req.params.key
     let targetUrl = ''
     switch (key) {
       case 'update':
