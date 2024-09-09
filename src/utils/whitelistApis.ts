@@ -4094,6 +4094,18 @@ export const API_LIST = {
                                 ROLE.PUBLIC,
                                ],
         },
+        '/protected/v8/workflowhandler/profileApprovalSearch': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
+                ROLE.WAT_MEMBER,
+                ROLE.CBC_ADMIN,
+                ROLE.SPV_ADMIN,
+                ROLE.STATE_ADMIN,
+            ],
+        },
         '/proxies/v8/mentoring/v1/entity/list': {
                                checksNeeded: [CHECK.ROLE],
                                // tslint:disable-next-line: object-literal-sort-keys
@@ -4692,6 +4704,7 @@ export const API_LIST = {
             '/proxies/v8/contentpartner/v1/search',
             '/proxies/v8/contentpartner/v1/delete/:id',
             '/proxies/v8/mentoring/v1/entity-type/read',
+            '/protected/v8/workflowhandler/profileApprovalSearch',
             '/proxies/v8/mentoring/v1/entity/list',
             '/proxies/v8/data/v2/system/settings/get/:id',
             '/proxies/v8/mentoring/v1/sessions/update',

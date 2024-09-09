@@ -16,6 +16,7 @@ const API_END_POINTS = {
         `${CONSTANTS.WORKFLOW_HANDLER_SERVICE_API_BASE}/v1/workflow/${workflowId}/${applicationId}/history`,
     nextActionSearch: (serviceName: string, state: string) =>
         `${CONSTANTS.KONG_API_BASE}/workflow/nextAction/${serviceName}/${state}`,
+    profileApprovalSearch: `${CONSTANTS.KONG_API_BASE}/workflow/profile/approvalRequest/search`,
     userProfileUpdate: `${CONSTANTS.KONG_API_BASE}/workflow/updateUserProfileWF`,
     userWfFieldsSearch: `${CONSTANTS.KONG_API_BASE}/workflow/getUserWFApplicationFields`,
     userWfSearch: `${CONSTANTS.KONG_API_BASE}/workflow/getUserWF`,
@@ -283,6 +284,39 @@ workflowHandlerApi.post('/userWFApplicationFieldsSearch', async (req, res) => {
                     org: orgValue,
                     rootOrg: rootOrgValue,
                     wid,
+                     // tslint:disable-next-line: all
+                     'x-authenticated-user-token': extractUserToken(req),
+                },
+            }
+        )
+        res.status(response.status).send(response.data)
+    } catch (err) {
+        logError(failedToProcess + err)
+        res.status((err && err.response && err.response.status) || 500).send(
+            (err && err.response && err.response.data) || {
+                error: unknownError,
+            }
+        )
+    }
+})
+
+workflowHandlerApi.post('/profileApprovalSearch', async (req, res) => {
+    try {
+        const rootOrgValue = req.headers.rootorg
+        const orgValue = req.headers.org
+        if (!rootOrgValue || !orgValue) {
+            res.status(400).send(ERROR.ERROR_NO_ORG_DATA)
+            return
+        }
+        const response = await axios.post(
+            API_END_POINTS.profileApprovalSearch,
+            req.body,
+            {
+                ...axiosRequestConfig,
+                headers: {
+                    Authorization: CONSTANTS.SB_API_KEY,
+                    org: orgValue,
+                    rootOrg: rootOrgValue,
                      // tslint:disable-next-line: all
                      'x-authenticated-user-token': extractUserToken(req),
                 },
