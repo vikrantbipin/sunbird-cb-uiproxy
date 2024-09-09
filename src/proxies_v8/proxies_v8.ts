@@ -25,6 +25,7 @@ import {
   scormProxyCreatorRoute
 } from '../utils/proxyCreator'
 import { extractUserIdFromRequest, extractUserToken } from '../utils/requestExtract'
+import { frameworksApi } from './frameworks'
 
 const API_END_POINTS = {
   batchParticipantsApi: `${CONSTANTS.KONG_API_BASE}/course/v1/batch/participants/list`,
@@ -398,7 +399,7 @@ proxiesV8.use('/dashboard/*',
 )
 
 // tslint:disable-next-line:max-line-length
-proxiesV8.post(['/user/v1/bulkupload', '/storage/profilePhotoUpload/*', '/workflow/admin/transition/bulkupdate', '/cloud-services/mlcore/v1/files/upload', '/calendar/v1/bulkUpload', '/storage/orgStoreUpload', '/workflow/admin/v2/bulkupdate/transition', '/user/v2/bulkupload'], (req, res) => {
+proxiesV8.post(['/user/v1/bulkupload', '/storage/profilePhotoUpload/*', '/workflow/admin/transition/bulkupdate', '/cloud-services/mlcore/v1/files/upload', '/calendar/v1/bulkUpload', '/storage/orgStoreUpload', '/workflow/admin/v2/bulkupdate/transition', '/user/v2/bulkupload', '/ciosIntegration/v1/loadContentFromExcel'], (req, res) => {
   if (req.files && req.files.data) {
     const url = removePrefix('/proxies/v8', req.originalUrl)
     const file: UploadedFile = req.files.data as UploadedFile
@@ -743,6 +744,11 @@ proxiesV8.use('/announcements/*',
   proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
 )
 
+proxiesV8.use('/cqfquestionset/*',
+  // tslint:disable-next-line: max-line-length
+  proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
+)
+
 function removePrefix(prefix: string, s: string) {
   return s.substr(prefix.length)
 }
@@ -958,9 +964,7 @@ proxiesV8.use('/tenders/*',
   proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
 )
 
-proxiesV8.use('/framework/*',
-  proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
-)
+proxiesV8.use('/framework/*', frameworksApi)
 
 proxiesV8.use('/v1/search/competenciesByOrg',
   proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
@@ -983,6 +987,10 @@ proxiesV8.use('/competencyTheme/*',
 )
 
 proxiesV8.use('/competencySubTheme/*',
+  proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
+)
+
+proxiesV8.use('/halloffame/*',
   proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
 )
 
