@@ -423,6 +423,7 @@ export const API_LIST = {
                 ROLE.PROGRAM_COORDINATOR,
                 ROLE.SPV_ADMIN,
                 ROLE.SPV_PUBLISHER,
+                ROLE.SPV_PUBLISHER
             ],
         },
         '/proxies/v8/v1/content/retire': {
@@ -4175,6 +4176,143 @@ export const API_LIST = {
                 ROLE.PUBLIC,
             ],
         },
+        '/proxies/v8/ciosIntegration/v1/deleteContent': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+              ROLE.SPV_ADMIN,
+              ROLE.MDO_ADMIN,
+              ROLE.CBP_ADMIN,
+            ],
+        },
+        '/proxies/v8/storage/v1/uploadCiosIcon': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                    ROLE.SPV_ADMIN,
+                    ROLE.MDO_ADMIN,
+                    ROLE.CBP_ADMIN,
+                  ],
+        },
+        '/proxies/v8/storage/v1/uploadCiosContract': {
+                 checksNeeded: [CHECK.ROLE],
+                 // tslint:disable-next-line: object-literal-sort-keys
+                 ROLE_CHECK: [
+                   ROLE.SPV_ADMIN,
+                   ROLE.MDO_ADMIN,
+                   ROLE.CBP_ADMIN,
+                 ],
+        },
+        '/proxies/v8/storage/v1/downloadCiosContract/:fileName': {
+                   checksNeeded: [CHECK.ROLE],
+                   // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                       ROLE.SPV_ADMIN,
+                       ROLE.MDO_ADMIN,
+                       ROLE.CBP_ADMIN,
+                   ],
+        },
+        '/proxies/v8/serviceregistry/v1/callExternalApi': {
+                checksNeeded: [CHECK.ROLE],
+                // tslint:disable-next-line: object-literal-sort-keys
+                ROLE_CHECK: [
+                  ROLE.SPV_ADMIN,
+                  ROLE.MDO_ADMIN,
+                  ROLE.CBP_ADMIN,
+                ],
+        },
+        '/proxies/v8/serviceregistry/config/create': {
+                      checksNeeded: [CHECK.ROLE],
+                      // tslint:disable-next-line: object-literal-sort-keys
+                      ROLE_CHECK: [
+                          ROLE.SPV_ADMIN,
+                          ROLE.MDO_ADMIN,
+                          ROLE.CBP_ADMIN,
+                      ],
+        },
+        '/proxies/v8/serviceregistry/config/delete/:id': {
+                    checksNeeded: [CHECK.ROLE],
+                    // tslint:disable-next-line: object-literal-sort-keys
+                    ROLE_CHECK: [
+                       ROLE.SPV_ADMIN,
+                       ROLE.MDO_ADMIN,
+                       ROLE.CBP_ADMIN,
+                    ],
+        },
+        '/proxies/v8/serviceregistry/config/search': {
+                    checksNeeded: [CHECK.ROLE],
+                    // tslint:disable-next-line: object-literal-sort-keys
+                    ROLE_CHECK: [
+                      ROLE.SPV_ADMIN,
+                      ROLE.MDO_ADMIN,
+                      ROLE.CBP_ADMIN,
+                    ],
+        },
+        '/proxies/v8/serviceregistry/config/fetch': {
+                    checksNeeded: [CHECK.ROLE],
+                    // tslint:disable-next-line: object-literal-sort-keys
+                    ROLE_CHECK: [
+                      ROLE.SPV_ADMIN,
+                      ROLE.MDO_ADMIN,
+                      ROLE.CBP_ADMIN,
+                    ],
+        },
+        '/proxies/v8/comment/v1/addFirst': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                     ROLE.PUBLIC,
+                  ],
+        },
+        '/proxies/v8/comment/v1/addNew': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                     ROLE.PUBLIC,
+                  ],
+        },
+        '/proxies/v8/comment/v1/update': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                     ROLE.PUBLIC,
+                  ],
+        },
+        '/proxies/v8/comment/v1/getAll': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                     ROLE.PUBLIC,
+                  ],
+        },
+        '/proxies/v8/comment/v1/multipleWorkflows': {
+                   checksNeeded: [CHECK.ROLE],
+                   // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                      ROLE.PUBLIC,
+                   ],
+        },
+        '/proxies/v8/comment/v1/delete/:commentId': {
+                   checksNeeded: [CHECK.ROLE],
+                   // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                      ROLE.PUBLIC,
+                   ],
+        },
+        '/proxies/v8/comment/v1/setStatusToResolved': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                     ROLE.PUBLIC,
+                  ],
+        },
+        '/proxies/v8/comment/v1/resolve/:commentId': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                     ROLE.PUBLIC,
+                  ],
+        },
     },
     URL_PATTERN:
         [
@@ -4715,5 +4853,22 @@ export const API_LIST = {
             '/proxies/v8/halloffame/v1/userleaderboard/:id',
             '/proxies/v8/ciosIntegration/v1/file/info/:partnerId',
             '/protected/v8/user/evaluate/assessment/submit/v6',
+            '/proxies/v8/ciosIntegration/v1/deleteContent',
+            '/proxies/v8/storage/v1/uploadCiosIcon',
+            '/proxies/v8/storage/v1/uploadCiosContract',
+            '/proxies/v8/storage/v1/downloadCiosContract/:fileName',
+            '/proxies/v8/serviceregistry/v1/callExternalApi',
+            '/proxies/v8/serviceregistry/config/create',
+            '/proxies/v8/serviceregistry/config/delete/:id',
+            '/proxies/v8/serviceregistry/config/search',
+            '/proxies/v8/serviceregistry/config/fetch',
+            '/proxies/v8/comment/v1/addFirst',
+            '/proxies/v8/comment/v1/addNew',
+            '/proxies/v8/comment/v1/update',
+            '/proxies/v8/comment/v1/getAll',
+            '/proxies/v8/comment/v1/multipleWorkflows',
+            '/proxies/v8/comment/v1/delete/:commentId',
+            '/proxies/v8/comment/v1/setStatusToResolved',
+            '/proxies/v8/comment/v1/resolve/:commentId',
            ],
 }
