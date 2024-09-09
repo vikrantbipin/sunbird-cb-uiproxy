@@ -1075,3 +1075,7 @@ proxiesV8.use('/contentpartner/*',
 proxiesV8.use('/serviceregistry/*',
   proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
 )
+
+proxiesV8.use('/comment/*',
+  proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
+)

@@ -4236,7 +4236,63 @@ export const API_LIST = {
                       ROLE.MDO_ADMIN,
                       ROLE.CBP_ADMIN,
                     ],
-      },
+        },
+        '/proxies/v8/comment/v1/addFirst': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                     ROLE.PUBLIC,
+                  ],
+        },
+        '/proxies/v8/comment/v1/addNew': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                     ROLE.PUBLIC,
+                  ],
+        },
+        '/proxies/v8/comment/v1/update': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                     ROLE.PUBLIC,
+                  ],
+        },
+        '/proxies/v8/comment/v1/getAll': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                     ROLE.PUBLIC,
+                  ],
+        },
+        '/proxies/v8/comment/v1/multipleWorkflows': {
+                   checksNeeded: [CHECK.ROLE],
+                   // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                      ROLE.PUBLIC,
+                   ],
+        },
+        '/proxies/v8/comment/v1/delete/:commentId': {
+                   checksNeeded: [CHECK.ROLE],
+                   // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                      ROLE.PUBLIC,
+                   ],
+        },
+        '/proxies/v8/comment/v1/setStatusToResolved': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                     ROLE.PUBLIC,
+                  ],
+        },
+        '/proxies/v8/comment/v1/resolve/:commentId': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                     ROLE.PUBLIC,
+                  ],
+        },
     },
     URL_PATTERN:
         [
@@ -4784,5 +4840,13 @@ export const API_LIST = {
             '/proxies/v8/serviceregistry/config/delete/:id',
             '/proxies/v8/serviceregistry/config/search',
             '/proxies/v8/serviceregistry/config/fetch',
+            '/proxies/v8/comment/v1/addFirst',
+            '/proxies/v8/comment/v1/addNew',
+            '/proxies/v8/comment/v1/update',
+            '/proxies/v8/comment/v1/getAll',
+            '/proxies/v8/comment/v1/multipleWorkflows',
+            '/proxies/v8/comment/v1/delete/:commentId',
+            '/proxies/v8/comment/v1/setStatusToResolved',
+            '/proxies/v8/comment/v1/resolve/:commentId',
            ],
 }
