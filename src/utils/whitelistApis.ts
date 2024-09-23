@@ -543,6 +543,7 @@ export const API_LIST = {
                 ROLE.CONTENT_PUBLISHER,
                 ROLE.PROGRAM_COORDINATOR,
                 ROLE.CBP_ADMIN,
+                ROLE.SPV_PUBLISHER,
             ],
         },
         '/proxies/v8/org/v1/profile/read': {
