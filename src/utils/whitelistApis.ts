@@ -423,8 +423,6 @@ export const API_LIST = {
                 ROLE.PROGRAM_COORDINATOR,
                 ROLE.SPV_ADMIN,
                 ROLE.SPV_PUBLISHER,
-                ROLE.SPV_PUBLISHER,
-
             ],
         },
         '/proxies/v8/v1/content/retire': {
@@ -3512,6 +3510,7 @@ export const API_LIST = {
               ROLE.CBP_ADMIN,
             ],
         },
+
         '/proxies/v8/ciosIntegration/v1/loadContentFromExcel/:partnercode': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
@@ -4183,6 +4182,7 @@ export const API_LIST = {
                 ROLE.PUBLIC,
             ],
         },
+
         '/proxies/v8/ciosIntegration/v1/deleteContent': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys

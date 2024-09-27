@@ -13,6 +13,8 @@ export const publicApiV8 = express.Router()
 
 const API_END_POINTS = {
   kongCompositeSearch: `${CONSTANTS.KONG_API_BASE}/composite/v4/search`,
+  publicAssessmentV1QuestionList: `${CONSTANTS.KONG_API_BASE}/public/assessment/v1/question/list`,
+  publicAssessmentV1Read: `${CONSTANTS.KONG_API_BASE}/public/assessment/v1/read/:id`,
 }
 
 publicApiV8.get('/', (_req, res) => {
@@ -71,6 +73,10 @@ publicApiV8.use('/parichay', parichayAuth)
 publicApiV8.use('/halloffame/read', proxyCreatorRoute(express.Router(), CONSTANTS.KONG_API_BASE + '/halloffame/read'))
 
 publicApiV8.use('/playlist', youtubePlaylist)
+
+publicApiV8.use('/public/assessment/v1/question/list', proxyCreatorRoute(express.Router(), API_END_POINTS.publicAssessmentV1QuestionList))
+
+publicApiV8.use('/public/assessment/v1/read/:id', proxyCreatorRoute(express.Router(), API_END_POINTS.publicAssessmentV1Read))
 
 publicApiV8.get('/careers/list', async (_, res) => {
    await fetchList('Jobs', res)
