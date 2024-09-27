@@ -72,6 +72,10 @@ publicApiV8.use('/halloffame/read', proxyCreatorRoute(express.Router(), CONSTANT
 
 publicApiV8.use('/playlist', youtubePlaylist)
 
+publicApiV8.use('/public/assessment/read/:id', proxyCreatorRoute(express.Router(), CONSTANTS.KONG_API_BASE + '/public/assessment/read/:id'))
+
+publicApiV8.use('/public/assessment/question/list', proxyCreatorRoute(express.Router(), CONSTANTS.KONG_API_BASE + '/public/assessment/question/list'))
+
 publicApiV8.get('/careers/list', async (_, res) => {
    await fetchList('Jobs', res)
  })
