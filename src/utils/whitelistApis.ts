@@ -4566,6 +4566,48 @@ export const API_LIST = {
                 ROLE.SPV_ADMIN,
             ],
         },
+        '/proxies/v8/public/assessment/v1/question/list': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                    ROLE.PUBLIC,
+            ],
+        },
+        '/proxies/v8/public/assessment/v1/read/:id': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                    ROLE.PUBLIC,
+            ],
+        },
+        '/proxies/v8/public/assessment/v5/question/list': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                    ROLE.PUBLIC,
+            ],
+        },
+        '/proxies/v8/public/assessment/v5/read/:id': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                    ROLE.PUBLIC,
+            ],
+        },
+        '/proxies/v8/public/assessment/v5/assessment/submit': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                    ROLE.PUBLIC,
+            ],
+        },
+        '/proxies/v8/public/assessment/v4/assessment/submit': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                    ROLE.PUBLIC,
+            ],
+        },
     },
     URL_PATTERN:
         [
@@ -5155,5 +5197,11 @@ export const API_LIST = {
             '/proxies/v8/designation/v1/orgMapping/bulkUpload/:frameworkId',
             '/proxies/v8/designation/v1/orgMapping/bulkUpload/progress/details/:orgId',
             '/proxies/v8/designation/v1/orgMapping/download/:fileName',
+            '/proxies/v8/public/assessment/v1/question/list',
+            '/proxies/v8/public/assessment/v1/read/:id',
+            '/proxies/v8/public/assessment/v5/question/list',
+            '/proxies/v8/public/assessment/v5/read/:id',
+            '/proxies/v8/public/assessment/v5/assessment/submit',
+            '//proxies/v8/public/assessment/v4/assessment/submit'
            ],
 }
