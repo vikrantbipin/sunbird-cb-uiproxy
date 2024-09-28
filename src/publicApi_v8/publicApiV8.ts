@@ -19,6 +19,7 @@ const API_END_POINTS = {
   publicAssessmentV5QuestionList: `${CONSTANTS.KONG_API_BASE}/public/assessment/v5/question/list`,
   publicAssessmentV5Read: `${CONSTANTS.KONG_API_BASE}/public/assessment/v5/read`,
   publicAssessmentV5Submit: `${CONSTANTS.KONG_API_BASE}/public/assessment/v5/assessment/submit`,
+  publicAssessmentV5Result: `${CONSTANTS.KONG_API_BASE}/public/assessment/v5/result`,
 }
 
 publicApiV8.get('/', (_req, res) => {
@@ -89,6 +90,8 @@ publicApiV8.use('/public/assessment/v5/read', proxyCreatorRoute(express.Router()
 publicApiV8.use('/public/assessment/v5/assessment/submit', proxyCreatorRoute(express.Router(), API_END_POINTS.publicAssessmentV5Submit))
 
 publicApiV8.use('/public/assessment/v4/assessment/submit', proxyCreatorRoute(express.Router(), API_END_POINTS.publicAssessmentV4Submit))
+
+publicApiV8.use('/public/assessment/v5/result', proxyCreatorRoute(express.Router(), API_END_POINTS.publicAssessmentV5Result))
 
 publicApiV8.get('/careers/list', async (_, res) => {
    await fetchList('Jobs', res)
