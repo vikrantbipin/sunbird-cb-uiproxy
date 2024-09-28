@@ -15,9 +15,9 @@ const API_END_POINTS = {
   kongCompositeSearch: `${CONSTANTS.KONG_API_BASE}/composite/v4/search`,
   publicAssessmentV1QuestionList: `${CONSTANTS.KONG_API_BASE}/public/assessment/v1/question/list`,
   publicAssessmentV1Read: `${CONSTANTS.KONG_API_BASE}/public/assessment/v1/read/:id`,
+  publicAssessmentV4Submit: `${CONSTANTS.KONG_API_BASE}/public/assessment/v4/assessment/submit`,
   publicAssessmentV5QuestionList: `${CONSTANTS.KONG_API_BASE}/public/assessment/v5/question/list`,
   publicAssessmentV5Read: `${CONSTANTS.KONG_API_BASE}/public/assessment/v5/read/:id`,
-  publicAssessmentV4Submit: `${CONSTANTS.KONG_API_BASE}/public/assessment/v4/assessment/submit`,
   publicAssessmentV5Submit: `${CONSTANTS.KONG_API_BASE}/public/assessment/v5/assessment/submit`,
 }
 
