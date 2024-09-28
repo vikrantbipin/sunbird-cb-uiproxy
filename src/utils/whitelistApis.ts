@@ -5202,6 +5202,6 @@ export const API_LIST = {
             '/proxies/v8/public/assessment/v5/question/list',
             '/proxies/v8/public/assessment/v5/read/:id',
             '/proxies/v8/public/assessment/v5/assessment/submit',
-            '//proxies/v8/public/assessment/v4/assessment/submit'
+            '/proxies/v8/public/assessment/v4/assessment/submit',
            ],
 }
