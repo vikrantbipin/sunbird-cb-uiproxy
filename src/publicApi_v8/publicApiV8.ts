@@ -15,6 +15,11 @@ const API_END_POINTS = {
   kongCompositeSearch: `${CONSTANTS.KONG_API_BASE}/composite/v4/search`,
   publicAssessmentV1QuestionList: `${CONSTANTS.KONG_API_BASE}/public/assessment/v1/question/list`,
   publicAssessmentV1Read: `${CONSTANTS.KONG_API_BASE}/public/assessment/v1/read/:id`,
+  publicAssessmentV4Submit: `${CONSTANTS.KONG_API_BASE}/public/assessment/v4/assessment/submit`,
+  publicAssessmentV5QuestionList: `${CONSTANTS.KONG_API_BASE}/public/assessment/v5/question/list`,
+  publicAssessmentV5Read: `${CONSTANTS.KONG_API_BASE}/public/assessment/v5/read`,
+  publicAssessmentV5Result: `${CONSTANTS.KONG_API_BASE}/public/assessment/v5/result`,
+  publicAssessmentV5Submit: `${CONSTANTS.KONG_API_BASE}/public/assessment/v5/assessment/submit`,
 }
 
 publicApiV8.get('/', (_req, res) => {
@@ -77,6 +82,17 @@ publicApiV8.use('/playlist', youtubePlaylist)
 publicApiV8.use('/public/assessment/v1/question/list', proxyCreatorRoute(express.Router(), API_END_POINTS.publicAssessmentV1QuestionList))
 
 publicApiV8.use('/public/assessment/v1/read/:id', proxyCreatorRoute(express.Router(), API_END_POINTS.publicAssessmentV1Read))
+
+publicApiV8.use('/public/assessment/v5/question/list', proxyCreatorRoute(express.Router(), API_END_POINTS.publicAssessmentV5QuestionList))
+
+publicApiV8.use('/public/assessment/v5/read', proxyCreatorRoute(express.Router(), API_END_POINTS.publicAssessmentV5Read))
+
+publicApiV8.use('/public/assessment/v5/assessment/submit', proxyCreatorRoute(express.Router(), API_END_POINTS.publicAssessmentV5Submit))
+
+publicApiV8.use('/public/assessment/v4/assessment/submit', proxyCreatorRoute(express.Router(), API_END_POINTS.publicAssessmentV4Submit))
+
+publicApiV8.use('/public/assessment/v5/result', proxyCreatorRoute(express.Router(), API_END_POINTS.publicAssessmentV5Result))
+
 
 publicApiV8.get('/careers/list', async (_, res) => {
    await fetchList('Jobs', res)
