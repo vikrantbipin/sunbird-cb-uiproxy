@@ -4724,6 +4724,6 @@ export const API_LIST = {
             '/proxies/v8/halloffame/v1/userleaderboard/:id',
             '/proxies/v8/ciosIntegration/v1/file/info/:partnerId',
             '/protected/v8/user/evaluate/assessment/submit/v6',
-            '/protected/v8/operationalreports/v2/download/:rootOrgId',
+            '/proxies/v8/operationalreports/v2/download/:rootOrgId',
            ],
 }
