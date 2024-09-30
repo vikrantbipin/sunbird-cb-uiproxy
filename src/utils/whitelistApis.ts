@@ -4615,6 +4615,15 @@ export const API_LIST = {
                     ROLE.PUBLIC,
             ],
         },
+        '/proxies/v8/operationalreports/v2/download/:rootOrgId': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.SPV_ADMIN,
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
+            ],
+        },
     },
     URL_PATTERN:
         [
@@ -5211,5 +5220,6 @@ export const API_LIST = {
             '/proxies/v8/public/assessment/v5/assessment/submit',
             '/proxies/v8/public/assessment/v4/assessment/submit',
             '/proxies/v8/public/assessment/v5/result',
+            '/proxies/v8/operationalreports/v2/download/:rootOrgId',
            ],
 }
