@@ -4345,6 +4345,7 @@ export const API_LIST = {
                 ROLE.SPV_PUBLISHER,
                 ROLE.CONTENT_CREATOR,
                 ROLE.CONTENT_REVIEWER,
+                ROLE.CONTENT_PUBLISHER,
             ],
             checksNeeded: [CHECK.ROLE],
          },
@@ -4566,6 +4567,39 @@ export const API_LIST = {
                 ROLE.SPV_ADMIN,
             ],
         },
+
+        '/proxies/v8/ciosIntegration/v1/read/content/:partnercode/:externalid': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+              ROLE.SPV_ADMIN,
+              ROLE.MDO_ADMIN,
+              ROLE.CBP_ADMIN,
+            ],
+        },
+        '/proxies/v8/ciosIntegration/v1/search/content': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+              ROLE.PUBLIC,
+            ],
+        },
+        '/proxies/v8/ciosIntegration/v1/update/content': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+              ROLE.SPV_ADMIN,
+              ROLE.MDO_ADMIN,
+              ROLE.CBP_ADMIN,
+            ],
+        },
+        '/proxies/v8/contentpartner/v1/readbypartnercode/:partnercode': {
+                checksNeeded: [CHECK.ROLE],
+                // tslint:disable-next-line: object-literal-sort-keys
+                ROLE_CHECK: [
+                  ROLE.PUBLIC,
+                ],
+
         '/proxies/v8/public/assessment/v1/question/list': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
@@ -5213,6 +5247,12 @@ export const API_LIST = {
             '/proxies/v8/designation/v1/orgMapping/bulkUpload/:frameworkId',
             '/proxies/v8/designation/v1/orgMapping/bulkUpload/progress/details/:orgId',
             '/proxies/v8/designation/v1/orgMapping/download/:fileName',
+
+            '/proxies/v8/ciosIntegration/v1/read/content/:partnercode/:externalid',
+            '/proxies/v8/ciosIntegration/v1/search/content',
+            '/proxies/v8/ciosIntegration/v1/update/content',
+            '/proxies/v8/contentpartner/v1/readbypartnercode/:partnercode',
+
             '/proxies/v8/public/assessment/v1/question/list',
             '/proxies/v8/public/assessment/v1/read/:id',
             '/proxies/v8/public/assessment/v5/question/list',
@@ -5221,5 +5261,6 @@ export const API_LIST = {
             '/proxies/v8/public/assessment/v4/assessment/submit',
             '/proxies/v8/public/assessment/v5/result',
             '/proxies/v8/operationalreports/v2/download/:rootOrgId',
+
            ],
 }
