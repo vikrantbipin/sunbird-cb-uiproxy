@@ -4552,6 +4552,32 @@ export const API_LIST = {
               ROLE.CBP_ADMIN,
             ],
         },
+        '/proxies/v8/ciosIntegration/v1/read/content/:partnercode/:externalid': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+              ROLE.SPV_ADMIN,
+              ROLE.MDO_ADMIN,
+              ROLE.CBP_ADMIN,
+            ],
+        },
+        '/proxies/v8/ciosIntegration/v1/search/content': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+              ROLE.PUBLIC,
+            ],
+        },
+        '/proxies/v8/ciosIntegration/v1/update/content': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+              ROLE.SPV_ADMIN,
+              ROLE.MDO_ADMIN,
+              ROLE.CBP_ADMIN,
+            ],
+        },
+
         '/proxies/v8/contentpartner/v1/readbypartnercode/:partnercode': {
                 checksNeeded: [CHECK.ROLE],
                 // tslint:disable-next-line: object-literal-sort-keys
@@ -4616,6 +4642,24 @@ export const API_LIST = {
                 ROLE.MDO_ADMIN,
                 ROLE.MDO_LEADER,
             ],
+        },
+        '/proxies/v8/storage/v1/uploadCiosLogsFile': {
+                 checksNeeded: [CHECK.ROLE],
+                 // tslint:disable-next-line: object-literal-sort-keys
+                 ROLE_CHECK: [
+                   ROLE.SPV_ADMIN,
+                   ROLE.MDO_ADMIN,
+                   ROLE.CBP_ADMIN,
+                 ],
+        },
+        '/proxies/v8/storage/v1/downloadCiosLogs/:fileName': {
+                   checksNeeded: [CHECK.ROLE],
+                   // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                       ROLE.SPV_ADMIN,
+                       ROLE.MDO_ADMIN,
+                       ROLE.CBP_ADMIN,
+                   ],
         },
     },
     URL_PATTERN:
@@ -5218,5 +5262,7 @@ export const API_LIST = {
             '/proxies/v8/public/assessment/v4/assessment/submit',
             '/proxies/v8/public/assessment/v5/result',
             '/proxies/v8/operationalreports/v2/download/:rootOrgId',
+            '/proxies/v8/storage/v1/uploadCiosLogsFile',
+            '/proxies/v8/storage/v1/downloadCiosLogs/:fileName',
            ],
 }
