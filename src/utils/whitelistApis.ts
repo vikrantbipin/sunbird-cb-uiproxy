@@ -536,12 +536,6 @@ export const API_LIST = {
                 ROLE.MDO_LEADER,
                 ROLE.SPV_ADMIN,
                 ROLE.STATE_ADMIN,
-                ROLE.CONTENT_CREATOR,
-                ROLE.CONTENT_REVIEWER,
-                ROLE.CONTENT_PUBLISHER,
-                ROLE.PROGRAM_COORDINATOR,
-                ROLE.CBP_ADMIN,
-                ROLE.SPV_PUBLISHER,
             ],
         },
         '/proxies/v8/org/v1/profile/read': {
@@ -3777,7 +3771,7 @@ export const API_LIST = {
                         ROLE.PUBLIC,
                     ],
          },
-        '/proxies/v8/ciosIntegration/v1/loadContentProgressFromExcel/:partnercode': {
+        '/proxies/v8/ciosIntegration/v1/loadContentProgressFromExcel': {
                     checksNeeded: [CHECK.ROLE],
                     // tslint:disable-next-line: object-literal-sort-keys
                     ROLE_CHECK: [
@@ -4159,7 +4153,7 @@ export const API_LIST = {
                     ROLE.PUBLIC,
             ],
         },
-        '/proxies/v8/halloffame/v1/userleaderboard': {
+        '/proxies/v8/halloffame/v1/userleaderboard/:id': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
@@ -4182,7 +4176,6 @@ export const API_LIST = {
                 ROLE.PUBLIC,
             ],
         },
-
         '/proxies/v8/ciosIntegration/v1/deleteContent': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
@@ -4480,94 +4473,57 @@ export const API_LIST = {
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
                 ROLE.SPV_ADMIN,
-                ROLE.PUBLIC,
-            ],
-        },
-        '/proxies/v8/template/api/v1/survey/downloadSolutions': {
-            checksNeeded: [CHECK.ROLE],
-            // tslint:disable-next-line: object-literal-sort-keys
-            ROLE_CHECK: [
-                ROLE.SPV_ADMIN,
-                ROLE.PUBLIC,
-            ],
-        },
-        '/proxies/v8/organisation/v1/getCompetencyDesignationMappingFile/sample/:frameworkId': {
-            checksNeeded: [CHECK.ROLE],
-            // tslint:disable-next-line: object-literal-sort-keys
-            ROLE_CHECK: [
-                ROLE.MDO_LEADER,
                 ROLE.MDO_ADMIN,
-                ROLE.SPV_ADMIN,
-            ],
-        },
-        '/proxies/v8/organisation/v1/competencyDesignationMappings/bulkUpload/:frameworkId': {
-            checksNeeded: [CHECK.ROLE],
-            // tslint:disable-next-line: object-literal-sort-keys
-            ROLE_CHECK: [
                 ROLE.MDO_LEADER,
-                ROLE.MDO_ADMIN,
-                ROLE.SPV_ADMIN,
             ],
         },
-        '/proxies/v8/organisation/v1/competencyDesignationMappings/bulkUpload/progress/details/:orgId': {
+        '/proxies/v8/public/assessment/v1/question/list': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
-                ROLE.MDO_LEADER,
-                ROLE.MDO_ADMIN,
-                ROLE.SPV_ADMIN,
+                    ROLE.PUBLIC,
             ],
         },
-        '/proxies/v8/organisation/v1/competencyDesignationMappings/download/:fileName': {
+        '/proxies/v8/public/assessment/v1/read/:id': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
-                ROLE.MDO_LEADER,
-                ROLE.MDO_ADMIN,
-                ROLE.SPV_ADMIN,
+                    ROLE.PUBLIC,
             ],
         },
-        '/proxies/v8/national/learning/week/insights': {
+        '/proxies/v8/public/assessment/v5/question/list': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
-                 ROLE.PUBLIC,
+                    ROLE.PUBLIC,
             ],
         },
-        '/proxies/v8/designation/v1/orgMapping/sample/:frameworkId': {
+        '/proxies/v8/public/assessment/v5/read': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
-                ROLE.MDO_LEADER,
-                ROLE.MDO_ADMIN,
-                ROLE.SPV_ADMIN,
+                    ROLE.PUBLIC,
             ],
         },
-        '/proxies/v8/designation/v1/orgMapping/bulkUpload/:frameworkId': {
+        '/proxies/v8/public/assessment/v5/assessment/submit': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
-                ROLE.MDO_LEADER,
-                ROLE.MDO_ADMIN,
-                ROLE.SPV_ADMIN,
+                    ROLE.PUBLIC,
             ],
         },
-        '/proxies/v8/designation/v1/orgMapping/bulkUpload/progress/details/:orgId': {
+        '/proxies/v8/public/assessment/v4/assessment/submit': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
-                ROLE.MDO_LEADER,
-                ROLE.MDO_ADMIN,
-                ROLE.SPV_ADMIN,
+                    ROLE.PUBLIC,
             ],
         },
-        '/proxies/v8/designation/v1/orgMapping/download/:fileName': {
+        '/proxies/v8/public/assessment/v5/result': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
-                ROLE.MDO_LEADER,
-                ROLE.MDO_ADMIN,
-                ROLE.SPV_ADMIN,
+                    ROLE.PUBLIC,
             ],
         },
 
@@ -5107,7 +5063,7 @@ export const API_LIST = {
             '/proxies/v8/cios/v1/content/read/:contentId',
             '/proxies/v8/cios/v1/search/content',
             '/proxies/v8/cios/v1/content/delete/:contentId',
-            '/proxies/v8/ciosIntegration/v1/loadContentFromExcel/:partnercode',
+            '/proxies/v8/ciosIntegration/v1/loadContentFromExcel/:partnerName',
             '/proxies/v8/ciosIntegration/v1/readAllContentFromDb',
             '/proxies/v8/tenders/v4/read/:do_id',
             '/proxies/v8/tenders/v4/publish/:do_id',
@@ -5147,7 +5103,7 @@ export const API_LIST = {
             '/proxies/v8/mentoring/v1/cloud-services/getSignedUrl',
             '/proxies/v8/mentoring/v1/mentees/homeFeed',
             '/proxies/v8/mentoring/v1/users/list',
-            '/proxies/v8/ciosIntegration/v1/loadContentProgressFromExcel/:partnercode',
+            '/proxies/v8/ciosIntegration/v1/loadContentProgressFromExcel',
             '/proxies/v8/cios-enroll/v1/create',
             '/proxies/v8/cios-enroll/v1/courselist/byuserid',
             '/proxies/v8/cios-enroll/v1/readby/useridcourseid/:courseid',
@@ -5198,7 +5154,7 @@ export const API_LIST = {
             '/proxies/v8/cqfquestionset/v2/review/:id',
             '/proxies/v8/cqfquestionset/v2/hierarchy/update',
             '/proxies/v8/halloffame/v1/mdoleaderboard',
-            '/proxies/v8/halloffame/v1/userleaderboard',
+            '/proxies/v8/halloffame/v1/userleaderboard/:id',
             '/proxies/v8/ciosIntegration/v1/file/info/:partnerId',
             '/protected/v8/user/evaluate/assessment/submit/v6',
             '/proxies/v8/ciosIntegration/v1/deleteContent',
@@ -5250,12 +5206,10 @@ export const API_LIST = {
             '/proxies/v8/designation/v1/orgMapping/bulkUpload/:frameworkId',
             '/proxies/v8/designation/v1/orgMapping/bulkUpload/progress/details/:orgId',
             '/proxies/v8/designation/v1/orgMapping/download/:fileName',
-
             '/proxies/v8/ciosIntegration/v1/read/content/:partnercode/:externalid',
             '/proxies/v8/ciosIntegration/v1/search/content',
             '/proxies/v8/ciosIntegration/v1/update/content',
             '/proxies/v8/contentpartner/v1/readbypartnercode/:partnercode',
-
             '/proxies/v8/public/assessment/v1/question/list',
             '/proxies/v8/public/assessment/v1/read/:id',
             '/proxies/v8/public/assessment/v5/question/list',
@@ -5264,6 +5218,5 @@ export const API_LIST = {
             '/proxies/v8/public/assessment/v4/assessment/submit',
             '/proxies/v8/public/assessment/v5/result',
             '/proxies/v8/operationalreports/v2/download/:rootOrgId',
-
            ],
 }
