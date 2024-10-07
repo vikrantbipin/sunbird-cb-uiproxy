@@ -93,7 +93,6 @@ publicApiV8.use('/public/assessment/v4/assessment/submit', proxyCreatorRoute(exp
 
 publicApiV8.use('/public/assessment/v5/result', proxyCreatorRoute(express.Router(), API_END_POINTS.publicAssessmentV5Result))
 
-
 publicApiV8.get('/careers/list', async (_, res) => {
    await fetchList('Jobs', res)
  })
