@@ -5,7 +5,7 @@ const crypto = require('crypto')
 
 export const zoomAuth = express.Router()
 
-zoomAuth.get('/callback', async (req, res) => {
+zoomAuth.post('/callback', async (req, res) => {
     let response
 
     logInfo('Received zoom callback. headers: ' + JSON.stringify(req.headers))
