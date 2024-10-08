@@ -7,6 +7,7 @@ import { proxyCreatorRoute } from '../utils/proxyCreator'
 import { parichayAuth } from './parichayAuth'
 import { workallocationPublic } from './workallocationPublic'
 import { youtubePlaylist } from './youtubePlaylist'
+import { zoomAuth } from './zoomauth'
 
 const puppeteer = require('puppeteer')
 export const publicApiV8 = express.Router()
@@ -134,3 +135,5 @@ const fetchList = async (resourceCategoryString: string, res: express.Response) 
     res.status(500).send('Internal Server Error')
   }
 }
+
+publicApiV8.use('/zoom', zoomAuth)
