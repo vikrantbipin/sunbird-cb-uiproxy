@@ -4661,6 +4661,24 @@ export const API_LIST = {
                 ROLE.MDO_LEADER,
             ],
         },
+        '/proxies/v8/storage/v1/uploadCiosLogsFile': {
+                 checksNeeded: [CHECK.ROLE],
+                 // tslint:disable-next-line: object-literal-sort-keys
+                 ROLE_CHECK: [
+                   ROLE.SPV_ADMIN,
+                   ROLE.MDO_ADMIN,
+                   ROLE.CBP_ADMIN,
+                 ],
+        },
+        '/proxies/v8/storage/v1/downloadCiosLogs/:fileName': {
+                   checksNeeded: [CHECK.ROLE],
+                   // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                       ROLE.SPV_ADMIN,
+                       ROLE.MDO_ADMIN,
+                       ROLE.CBP_ADMIN,
+                   ],
+        },
     },
     URL_PATTERN:
         [
@@ -5250,12 +5268,10 @@ export const API_LIST = {
             '/proxies/v8/designation/v1/orgMapping/bulkUpload/:frameworkId',
             '/proxies/v8/designation/v1/orgMapping/bulkUpload/progress/details/:orgId',
             '/proxies/v8/designation/v1/orgMapping/download/:fileName',
-
             '/proxies/v8/ciosIntegration/v1/read/content/:partnercode/:externalid',
             '/proxies/v8/ciosIntegration/v1/search/content',
             '/proxies/v8/ciosIntegration/v1/update/content',
             '/proxies/v8/contentpartner/v1/readbypartnercode/:partnercode',
-
             '/proxies/v8/public/assessment/v1/question/list',
             '/proxies/v8/public/assessment/v1/read/:id',
             '/proxies/v8/public/assessment/v5/question/list',
@@ -5264,6 +5280,7 @@ export const API_LIST = {
             '/proxies/v8/public/assessment/v4/assessment/submit',
             '/proxies/v8/public/assessment/v5/result',
             '/proxies/v8/operationalreports/v2/download/:rootOrgId',
-
+            '/proxies/v8/storage/v1/uploadCiosLogsFile',
+            '/proxies/v8/storage/v1/downloadCiosLogs/:fileName',
            ],
 }
