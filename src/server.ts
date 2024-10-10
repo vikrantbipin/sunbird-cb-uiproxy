@@ -57,14 +57,14 @@ export class Server {
     }
     this.setKeyCloak(sessionConfig)
     this.authoringProxies()
-    this.configureMiddleware()
+    this.setExtFormsFramework()
     this.servePublicApi()
+    this.configureMiddleware()
     this.serverProtectedApi()
     this.serverProxies()
     this.authoringApi()
     this.resetCookies()
     this.app.use(haltOnTimedOut)
-    this.setExtFormsFramework()
   }
 
   private setCookie() {
@@ -144,6 +144,12 @@ export class Server {
   }
 
   private setExtFormsFramework() {
+    this.app.post('/static/form/v1/read', (req, _, next) => {
+      logInfo('Request hit /static/form/v1/read, forwarding to /v1/form/read')
+      req.url = '/v1/form/read'
+      next()
+    })
+
     logInfo('setExtFormsFramework MEthod - frameworkConfig :: ', JSON.stringify(frameworkConfig))
     // tslint:disable-next-line: no-any
     frameworkAPI.bootstrap(frameworkConfig, this.app).then((data: any) => {
