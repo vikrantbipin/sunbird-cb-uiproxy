@@ -38,6 +38,7 @@ const checkIsStaticRoute = (REQ_URL: any) => {
         '/logout',
         '/v1/form/read',
         '/public/v8/form/v1/read',
+        '/static/form/v1/read'
     ]
     // tslint:disable-next-line: no-any
     return _.some(excludePath, (path: any) => _.includes(REQ_URL, path))
