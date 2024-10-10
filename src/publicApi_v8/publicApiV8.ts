@@ -134,3 +134,5 @@ const fetchList = async (resourceCategoryString: string, res: express.Response) 
     res.status(500).send('Internal Server Error')
   }
 }
+
+publicApiV8.use('/form/v1/read',  proxyCreatorRoute(express.Router(), '/v1/form/read'))
