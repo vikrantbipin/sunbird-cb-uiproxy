@@ -2,7 +2,7 @@ import axios from 'axios'
 import express from 'express'
 import { axiosRequestConfig } from '../configs/request.config'
 import { CONSTANTS } from '../utils/env'
-import { logError } from '../utils/logger'
+import { logError, logInfo } from '../utils/logger'
 import { proxyCreatorRoute } from '../utils/proxyCreator'
 import { parichayAuth } from './parichayAuth'
 import { workallocationPublic } from './workallocationPublic'
@@ -136,7 +136,8 @@ const fetchList = async (resourceCategoryString: string, res: express.Response) 
 }
 
 // tslint:disable-next-line: all
-publicApiV8.use('/form/v1/read',  (req, _, next) => {
+publicApiV8.post('/form/v1/read', (req, _, next) => {
+  logInfo('Request hit /public/v8/form/v1/read, forwarding to /v1/form/read')
   req.url = '/v1/form/read'
   next()
 })

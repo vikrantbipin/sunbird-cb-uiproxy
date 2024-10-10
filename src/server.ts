@@ -57,14 +57,14 @@ export class Server {
     }
     this.setKeyCloak(sessionConfig)
     this.authoringProxies()
-    this.configureMiddleware()
+    this.setExtFormsFramework()
     this.servePublicApi()
+    this.configureMiddleware()
     this.serverProtectedApi()
     this.serverProxies()
     this.authoringApi()
     this.resetCookies()
     this.app.use(haltOnTimedOut)
-    this.setExtFormsFramework()
   }
 
   private setCookie() {
