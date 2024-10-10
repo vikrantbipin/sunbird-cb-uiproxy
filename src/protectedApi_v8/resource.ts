@@ -16,7 +16,7 @@ userAuthKeyCloakApi.get('/', (req, res) => {
             sameSite: 'Lax',
             secure: true,
         })
-        res.cookie('express.sid', req.cookies['connect.sid'], {
+        res.cookie('express.sid', req.cookies['express.sid'], {
             httpOnly: true,
             maxAge: CONSTANTS.KEYCLOAK_SESSION_TTL,
             sameSite: 'Lax',
