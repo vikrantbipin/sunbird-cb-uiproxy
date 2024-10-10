@@ -135,4 +135,8 @@ const fetchList = async (resourceCategoryString: string, res: express.Response) 
   }
 }
 
-publicApiV8.use('/form/v1/read',  proxyCreatorRoute(express.Router(), '/v1/form/read'))
+// tslint:disable-next-line: all
+publicApiV8.use('/form/v1/read',  (req, _, next) => {
+  req.url = '/v1/form/read'
+  next()
+})
