@@ -4686,7 +4686,7 @@ export const API_LIST = {
                      ROLE.PUBLIC,
                   ],
         },
-        '/proxies/v8/comment/v1/like/read/:commentId/:userId': {
+        '/proxies/v8/comment/v1/like/read': {
                    checksNeeded: [CHECK.ROLE],
                    // tslint:disable-next-line: object-literal-sort-keys
                    ROLE_CHECK: [
@@ -5297,6 +5297,6 @@ export const API_LIST = {
             '/proxies/v8/storage/v1/uploadCiosLogsFile',
             '/proxies/v8/storage/v1/downloadCiosLogs/:fileName',
             '/proxies/v8/comment/v1/like',
-            '/proxies/v8/comment/v1/like/read/:commentId/:userId',
+            '/proxies/v8/comment/v1/like/read',
            ],
 }
