@@ -58,6 +58,10 @@ export class Server {
     this.setKeyCloak(sessionConfig)
     this.authoringProxies()
     this.setExtFormsFramework()
+    this.app.post('/static/form/v1/read', (req, res, next) => {
+      logInfo('Request hit /static/form/v1/read, forwarding to /v1/form/read')
+      frameworkAPI.read(req, res, next)
+    })
     this.servePublicApi()
     this.configureMiddleware()
     this.serverProtectedApi()
