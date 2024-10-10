@@ -134,10 +134,3 @@ const fetchList = async (resourceCategoryString: string, res: express.Response) 
     res.status(500).send('Internal Server Error')
   }
 }
-
-// tslint:disable-next-line: all
-publicApiV8.post('/form/v1/read', (req, _, next) => {
-  logInfo('Request hit /public/v8/form/v1/read, forwarding to /v1/form/read')
-  req.url = '/v1/form/read'
-  next()
-})

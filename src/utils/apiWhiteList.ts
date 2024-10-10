@@ -37,7 +37,6 @@ const checkIsStaticRoute = (REQ_URL: any) => {
         '/public/',
         '/logout',
         '/v1/form/read',
-        '/public/v8/form/v1/read',
         '/static/form/v1/read',
     ]
     // tslint:disable-next-line: no-any
