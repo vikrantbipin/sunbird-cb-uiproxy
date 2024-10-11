@@ -13,7 +13,7 @@ userAuthKeyCloakApi.get('/', (req, res) => {
         res.cookie('connect.sid', req.cookies['connect.sid'], {
             httpOnly: true,
             maxAge: CONSTANTS.KEYCLOAK_SESSION_TTL,
-            sameSite: 'Lax',
+            sameSite: 'Strict',
             secure: true,
         })
         // res.cookie('express.sid', req.cookies['express.sid'], {
