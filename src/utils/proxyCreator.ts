@@ -69,18 +69,16 @@ proxy.on('proxyRes', (proxyRes: any, req: any, _res: any, ) => {
   delete proxyRes.headers['access-control-allow-origin']
   let connectCookies = proxyRes.headers["set-cookie"]
   let connectId = ''
-  if(connectCookies) {
-    if(connectCookies.length) {
-      connectCookies[0].split(";").find( (c:string) => {
-        if (c && c.indexOf("connect.sid") > -1) {
-          let splitVal = c.split("=")
-          if(splitVal && splitVal.length > 1) {
-            connectId = c.split("=")[1]
-          }
-          
+  if(connectCookies && connectCookies.length) {
+    connectCookies[0].split(";").find( (c:string) => {
+      if (c && c.indexOf("connect.sid") > -1) {
+        let splitVal = c.split("=")
+        if(splitVal && splitVal.length > 1) {
+          connectId = c.split("=")[1]
         }
-      })
-    }    
+        
+      }
+    })      
   }
   proxyRes.cookie('connect.sid', connectId, {
     httpOnly: true,
