@@ -187,21 +187,8 @@ export class Server {
   }
   private resetCookies() {
     this.app.use('/reset', (_req, res) => {
-      // tslint:disable-next-line
-      console.log('res--', res);
       logInfo('CLEARING RES COOKIES')
-      const connectSid = 'connect.sid'
-    //   res.cookie(connectSid, _req.cookies[connectSid], {
-    //     httpOnly: true,
-    //     maxAge: CONSTANTS.KEYCLOAK_SESSION_TTL,
-    //     sameSite: 'Strict',
-    //     secure: true,
-    //  })
-      res.status(200).clearCookie(connectSid, {
-        httpOnly: true,
-        sameSite: "Strict",
-        secure: true,
-      })
+      res.status(200).clearCookie('connect.sid', { httpOnly: true, path: '/', secure: true })
       if (_req.session) {
         _req.session.destroy(() => {
           res.redirect('/apis/logout')
