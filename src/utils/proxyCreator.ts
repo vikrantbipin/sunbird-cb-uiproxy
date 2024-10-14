@@ -67,27 +67,28 @@ proxy.on('proxyReq', (proxyReq: any, req: any, _res: any, _options: any) => {
 proxy.on('proxyRes', (proxyRes: any, req: any, _res: any, ) => {
   // res.removeHeader('access-control-allow-origin')
   delete proxyRes.headers['access-control-allow-origin']
-  let connectCookies = _res.headers["set-cookie"]
   logInfo('proxyRes for cookie',_res)
   logInfo('proxyRes for headers',proxyRes.headers)
-  let connectId = ''
-  if(connectCookies && connectCookies.length) {
-    connectCookies[0].split(";").find( (c:string) => {
-      if (c && c.indexOf("connect.sid") > -1) {
-        let splitVal = c.split("=")
-        if(splitVal && splitVal.length > 1) {
-          connectId = c.split("=")[1]
-        }
+  // let connectCookies = _res.headers["set-cookie"]
+ 
+  // let connectId = ''
+  // if(connectCookies && connectCookies.length) {
+  //   connectCookies[0].split(";").find( (c:string) => {
+  //     if (c && c.indexOf("connect.sid") > -1) {
+  //       let splitVal = c.split("=")
+  //       if(splitVal && splitVal.length > 1) {
+  //         connectId = c.split("=")[1]
+  //       }
         
-      }
-    })      
-  }
-  _res.cookie('connect.sid', connectId, {
-    httpOnly: true,
-    maxAge: CONSTANTS.KEYCLOAK_SESSION_TTL,
-    sameSite: 'Strict',
-    secure: true,
-  })
+  //     }
+  //   })      
+  // }
+  // _res.cookie('connect.sid', connectId, {
+  //   httpOnly: true,
+  //   maxAge: CONSTANTS.KEYCLOAK_SESSION_TTL,
+  //   sameSite: 'Strict',
+  //   secure: true,
+  // })
   // write user session with roles
   // if (req.originalUrl.includes('/user/v2/read')) {
   //   // tslint:disable-next-line: no-any
