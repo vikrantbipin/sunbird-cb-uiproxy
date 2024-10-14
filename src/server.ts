@@ -191,13 +191,17 @@ export class Server {
       console.log('res--', res);
       logInfo('CLEARING RES COOKIES', res)
       const connectSid = 'connect.sid'
-      res.cookie(connectSid, _req.cookies[connectSid], {
+    //   res.cookie(connectSid, _req.cookies[connectSid], {
+    //     httpOnly: true,
+    //     maxAge: CONSTANTS.KEYCLOAK_SESSION_TTL,
+    //     sameSite: 'Strict',
+    //     secure: true,
+    //  })
+      res.status(200).clearCookie(connectSid, {
         httpOnly: true,
-        maxAge: CONSTANTS.KEYCLOAK_SESSION_TTL,
-        sameSite: 'Strict',
+        sameSite: "Strict",
         secure: true,
-     })
-      res.status(200).clearCookie(connectSid, { path: '/' })
+      })
       if (_req.session) {
         _req.session.destroy(() => {
           res.redirect('/apis/logout')
