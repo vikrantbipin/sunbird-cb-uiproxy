@@ -67,8 +67,8 @@ proxy.on('proxyReq', (proxyReq: any, req: any, _res: any, _options: any) => {
 proxy.on('proxyRes', (proxyRes: any, req: any, _res: any, ) => {
   // res.removeHeader('access-control-allow-origin')
   delete proxyRes.headers['access-control-allow-origin']
-  logInfo('proxyRes for cookie',_res)
-  logInfo('proxyRes for headers',proxyRes.headers)
+  console.log('proxyRes for cookie',_res)
+  console.log('proxyRes for headers',proxyRes.headers)
   // write user session with roles
   // if (req.originalUrl.includes('/user/v2/read')) {
   //   // tslint:disable-next-line: no-any
