@@ -325,8 +325,8 @@ proxiesV8.get(['/api/user/v2/read', '/api/user/v2/read/:id'], async (req, res) =
           logError('Failed to clear the session. ERROR: ' + JSON.stringify(dErr))
         })
       }
-      res.clearCookie('connect.sid', { path: '/', secure: true , httpOnly: true,
-        sameSite: 'Strict'})
+      res.clearCookie('connect.sid', { httpOnly: true, path: '/', sameSite: 'Strict', secure: true
+        })
       res.redirect(`https://${host}/public/logout?error=` + encodeURIComponent(errMsg))
     }
   })
