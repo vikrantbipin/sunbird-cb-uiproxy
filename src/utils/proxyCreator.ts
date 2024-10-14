@@ -68,7 +68,7 @@ proxy.on('proxyRes', (proxyRes: any, req: any, _res: any, ) => {
   // res.removeHeader('access-control-allow-origin')
   delete proxyRes.headers['access-control-allow-origin']
   let connectCookies = proxyRes.headers["set-cookie"]
-  console.log('proxyRes',proxyRes)
+  logInfo('proxyRes for cookie',proxyRes)
   let connectId = ''
   if(connectCookies && connectCookies.length) {
     connectCookies[0].split(";").find( (c:string) => {
