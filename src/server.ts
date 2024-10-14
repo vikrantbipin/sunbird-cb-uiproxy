@@ -189,7 +189,7 @@ export class Server {
     this.app.use('/reset', (_req, res) => {
       // tslint:disable-next-line
       console.log('res--', res);
-      logInfo('CLEARING RES COOKIES', res)
+      logInfo('CLEARING RES COOKIES')
       const connectSid = 'connect.sid'
     //   res.cookie(connectSid, _req.cookies[connectSid], {
     //     httpOnly: true,
