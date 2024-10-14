@@ -190,13 +190,14 @@ export class Server {
       // tslint:disable-next-line
       console.log('res--', res);
       logInfo('CLEARING RES COOKIES', res)
-      res.cookie('connect.sid', _req.cookies['connect.sid'], {
+      const connectSid = 'connect.sid'
+      res.cookie(connectSid, _req.cookies[connectSid], {
         httpOnly: true,
         maxAge: CONSTANTS.KEYCLOAK_SESSION_TTL,
         sameSite: 'Strict',
         secure: true,
      })
-      res.status(200).clearCookie('connect.sid', { path: '/' })
+      res.status(200).clearCookie(connectSid, { path: '/' })
       if (_req.session) {
         _req.session.destroy(() => {
           res.redirect('/apis/logout')
