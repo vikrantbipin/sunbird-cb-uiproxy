@@ -37,6 +37,7 @@ const checkIsStaticRoute = (REQ_URL: any) => {
         '/public/',
         '/logout',
         '/v1/form/read',
+        '/static/form/v1/read',
     ]
     // tslint:disable-next-line: no-any
     return _.some(excludePath, (path: any) => _.includes(REQ_URL, path))
@@ -292,6 +293,7 @@ export const isAllowed = () => {
         let REQ_URL = req.path
         if (CONSTANTS.PORTAL_API_WHITELIST_CHECK === 'true') {
             if (shouldAllow(req) || _.includes(REQ_URL, '/resource')) {
+                logInfo('Path : ' + REQ_URL + ' is in excluded list.')
                 next()
             } else {
 
