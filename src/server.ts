@@ -68,12 +68,17 @@ export class Server {
   }
 
   private setCookie() {
+    
     this.app.use(cookieParser())
     this.app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
+      // tslint:disable
+      console.log('setCookie', res)
+      // tslint:enable
       const rootOrg = req.headers ? req.headers.rootOrg || req.headers.rootorg : ''
       if (rootOrg && req.hostname.toLowerCase().includes('localhost')) {
         res.cookie('rootorg', rootOrg)
       }
+      
       next()
     })
     this.app.use((_req: express.Request, _res: express.Response, next: express.NextFunction) => {
