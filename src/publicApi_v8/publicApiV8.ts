@@ -134,3 +134,5 @@ const fetchList = async (resourceCategoryString: string, res: express.Response) 
     res.status(500).send('Internal Server Error')
   }
 }
+
+publicApiV8.use('/org/v2/list', proxyCreatorRoute(express.Router(), CONSTANTS.KONG_API_BASE + '/org/v2/list'))
