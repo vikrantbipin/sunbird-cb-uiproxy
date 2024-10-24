@@ -4679,6 +4679,36 @@ export const API_LIST = {
                        ROLE.CBP_ADMIN,
                    ],
         },
+        '/proxies/v8/comment/v1/like': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                     ROLE.PUBLIC,
+                  ],
+        },
+        '/proxies/v8/comment/v1/like/read': {
+                   checksNeeded: [CHECK.ROLE],
+                   // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                      ROLE.PUBLIC,
+                   ],
+        },
+        '/proxies/v8/serviceregistry/v1/callexternalapibyid/:id': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                  ROLE.SPV_ADMIN,
+                  ROLE.MDO_ADMIN,
+                  ROLE.CBP_ADMIN,
+                  ],
+        },
+        '/proxies/v8/comment/search': {
+                   checksNeeded: [CHECK.ROLE],
+                   // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                      ROLE.PUBLIC,
+                   ],
+        },
     },
     URL_PATTERN:
         [
@@ -5282,5 +5312,9 @@ export const API_LIST = {
             '/proxies/v8/operationalreports/v2/download/:rootOrgId',
             '/proxies/v8/storage/v1/uploadCiosLogsFile',
             '/proxies/v8/storage/v1/downloadCiosLogs/:fileName',
+            '/proxies/v8/comment/v1/like',
+            '/proxies/v8/comment/v1/like/read',
+            '/proxies/v8/serviceregistry/v1/callexternalapibyid/:id',
+            '/proxies/v8/comment/search',
            ],
 }
