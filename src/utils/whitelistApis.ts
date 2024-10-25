@@ -4679,6 +4679,56 @@ export const API_LIST = {
                        ROLE.CBP_ADMIN,
                    ],
         },
+        '/proxies/v8/user/events/list/:uid': {
+                   checksNeeded: [CHECK.ROLE],
+                   // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                       ROLE.PUBLIC,
+                   ],
+
+        },
+        '/proxies/v8/event/batch/enroll': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.PUBLIC,
+            ],
+        },
+        '/proxies/v8/eventprogress/v1/event/state/update': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.PUBLIC,
+            ],
+        },
+        '/proxies/v8/user/event/read/:id': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.PUBLIC,
+            ],
+        },
+        '/proxies/v8/user/event/state/read': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.PUBLIC,
+            ],
+        },
+        '/proxies/v8/comment/search': {
+                   checksNeeded: [CHECK.ROLE],
+                   // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                      ROLE.PUBLIC,
+                   ],
+        },
+        '/proxies/v8/comment/list': {
+                   checksNeeded: [CHECK.ROLE],
+                   // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                      ROLE.PUBLIC,
+                   ],
+        },
         '/proxies/v8/comment/v1/like': {
                   checksNeeded: [CHECK.ROLE],
                   // tslint:disable-next-line: object-literal-sort-keys
@@ -5312,9 +5362,15 @@ export const API_LIST = {
             '/proxies/v8/operationalreports/v2/download/:rootOrgId',
             '/proxies/v8/storage/v1/uploadCiosLogsFile',
             '/proxies/v8/storage/v1/downloadCiosLogs/:fileName',
+            '/proxies/v8/serviceregistry/v1/callexternalapibyid/:id',
+            '/proxies/v8/user/events/list/:uid',
+            '/proxies/v8/event/batch/enroll',
+            '/proxies/v8/eventprogress/v1/event/state/update',
+            '/proxies/v8/user/event/read/:id',
+            '/proxies/v8/user/event/state/read',
+            '/proxies/v8/comment/search',
+            '/proxies/v8/comment/list',
             '/proxies/v8/comment/v1/like',
             '/proxies/v8/comment/v1/like/read',
-            '/proxies/v8/serviceregistry/v1/callexternalapibyid/:id',
-            '/proxies/v8/comment/search',
            ],
 }
