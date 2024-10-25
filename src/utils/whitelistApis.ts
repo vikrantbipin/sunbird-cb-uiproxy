@@ -4752,13 +4752,6 @@ export const API_LIST = {
                   ROLE.CBP_ADMIN,
                   ],
         },
-        '/proxies/v8/comment/search': {
-                   checksNeeded: [CHECK.ROLE],
-                   // tslint:disable-next-line: object-literal-sort-keys
-                   ROLE_CHECK: [
-                      ROLE.PUBLIC,
-                   ],
-        },
     },
     URL_PATTERN:
         [
