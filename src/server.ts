@@ -149,7 +149,6 @@ export class Server {
       req.url = '/v1/form/read'
       next()
     })
-
     logInfo('setExtFormsFramework MEthod - frameworkConfig :: ', JSON.stringify(frameworkConfig))
     // tslint:disable-next-line: no-any
     frameworkAPI.bootstrap(frameworkConfig, this.app).then((data: any) => {

@@ -1100,3 +1100,7 @@ proxiesV8.use('/national/learning/week/insights',
   // tslint:disable-next-line: max-line-length
   proxyCreatorSunbirdSearch(express.Router(), `${CONSTANTS.KONG_API_BASE}/national/learning/week/insights`)
 )
+
+proxiesV8.use('/eventprogress/*',
+  proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
+)

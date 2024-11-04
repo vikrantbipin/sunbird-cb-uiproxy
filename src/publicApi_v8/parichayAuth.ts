@@ -23,7 +23,12 @@ parichayAuth.get('/auth', async (req, res) => {
 parichayAuth.get('/callback', async (req, res) => {
     const host = req.get('host')
     if (!req.query.code) {
-        res.redirect(`https://${host}/public/logout?error=` + encodeURIComponent('Failed to login in Parichay. Code param is missing.'))
+        logInfo('Received host : ' + host)
+        logError('Failed to login in Parichay, authorization code is missing. Redirecting to /error')
+        const errorMessage = 'Failed to login using Parichay. Your Parichay session has expired.'
+                          + ' Please logoff from Parichay and retry [Login with Parichay] option on iGOT Portal Login page.'
+                          + ' If issue persists, then please try the same in incognito/private window.'
+        res.redirect(`https://${host}/public/logout?error=` + encodeURIComponent(errorMessage))
         return
     }
     let resRedirectUrl = `https://${host}/page/home`
@@ -48,7 +53,7 @@ parichayAuth.get('/callback', async (req, res) => {
             req.session.cookie.expires = new Date(getCurrnetExpiryTime(tokenResponse.data.access_token))
             logInfo('Parichay Token is set in request Session.' + tokenResponse.data.access_token)
         } else {
-            logError('Failed to set parichay token in req session. Session not available...')
+            logError('Failed to set Parichay token in req session. Session not available...')
         }
         const userDetailResponse = await axios({
             ...axiosRequestConfig,
@@ -60,22 +65,44 @@ parichayAuth.get('/callback', async (req, res) => {
         })
 
         logInfo('User information from Parichay : ' + JSON.stringify(userDetailResponse.data))
+        const loginId = userDetailResponse.data.loginId
+        if (!loginId) {
+          const errorMessage = 'iGOT login failed. You must allow Email id on the consent form for Login. '
+            + 'Please logout from Parichay and try iGOT Login with Parichay again.'
+          // Redirect to the logout page with an error message
+          res.redirect(`https://${host}/public/logout?error=` + encodeURIComponent(errorMessage))
+          return
+        }
+
         let result: { errMessage: string, rootOrgId: string, userExist: boolean, }
         result =  await fetchUserByEmailId(userDetailResponse.data.loginId)
-        logInfo('isUserExist ? ' + result.userExist + 'rootOrgId: ? ' + result.rootOrgId + ', errorMessage ? ' + result.errMessage)
+        logInfo('For Parichay emailId ? ' + userDetailResponse.data.loginId + ', isUserExist ? ' + result.userExist
+          + ', rootOrgId ? ' + result.rootOrgId + ', errorMessage ? ' + result.errMessage)
         let isFirstTimeUser = false
         if (result.errMessage === '') {
             let createResult: { errMessage: string, userCreated: boolean, userId: string }
             if (!result.userExist) {
-                logInfo('Sunbird User does not exist for email: ' + userDetailResponse.data.loginId)
+                logInfo('iGOT User does not exist for Parichay email: ' + userDetailResponse.data.loginId)
+                const mobileNo = userDetailResponse.data.MobileNo
+
+                if (!loginId || !mobileNo) {
+                   const errorMessage = 'Parichay user registration failed. You must allow Email id and Mobile number on the consent form. '
+                          + 'Please logout from Parichay and try iGOT Login with Parichay again.'
+                    // Redirect to the logout page with an error message
+                   res.redirect(`https://${host}/public/logout?error=` + encodeURIComponent(errorMessage))
+                   return
+                }
                 createResult = await createUserWithMailId(userDetailResponse.data.loginId,
                     userDetailResponse.data.FirstName, userDetailResponse.data.LastName, userDetailResponse.data.MobileNo)
                 if (createResult.errMessage !== '') {
                     result.errMessage = createResult.errMessage
                 }
                 isFirstTimeUser = true
+                logInfo('New user is created for Parichay email id:' + userDetailResponse.data.loginId
+                  + ', new User id:' + createResult.userId)
             } else {
-                logInfo('result.rootOrgId = ' + result.rootOrgId + ', XChannelId = ' + CONSTANTS.X_Channel_Id)
+                logInfo('User exists for Parichay email id:' + userDetailResponse.data.loginId
+                  + ', result.rootOrgId = ' + result.rootOrgId + ', XChannelId = ' + CONSTANTS.X_Channel_Id)
                 if (result.rootOrgId !== '' && result.rootOrgId === CONSTANTS.X_Channel_Id) {
                     isFirstTimeUser = true
                 }
@@ -86,18 +113,24 @@ parichayAuth.get('/callback', async (req, res) => {
                 }
                 keycloakResult = await updateKeycloakSession(userDetailResponse.data.loginId, req, res)
                 if (keycloakResult.errMessage !== '') {
-                    result.errMessage = keycloakResult.errMessage
+                  logError('For Parichay emailId:' + userDetailResponse.data.loginId
+                    + ', Received a keycloak error: ' + keycloakResult.errMessage)
+                  result.errMessage = keycloakResult.errMessage
                 }
             }
         }
         if (result.errMessage !== '') {
-            logInfo('Received error from user search. ')
+            logError('For Parichay emailId:' + userDetailResponse.data.loginId
+              + ', Received error from user search. Error Message: ' + result.errMessage)
             resRedirectUrl = `https://${host}/public/logout?error=` + encodeURIComponent(JSON.stringify(result.errMessage))
-        } else if (isFirstTimeUser) {
-            resRedirectUrl = `https://${host}/public/welcome`
+        } else {
+          logInfo('Parichay login is successful for emailId:' + userDetailResponse.data.loginId)
+          if (isFirstTimeUser) {
+              resRedirectUrl = `https://${host}/public/welcome`
+            }
         }
     } catch (err) {
-        logError('Failed to process callback API.. error: ' + JSON.stringify(err))
+        logError('Failed to process callback API for Parichay code : ' + req.query.code + '..with the error: ' + JSON.stringify(err))
         resRedirectUrl = `https://${host}/public/logout?error=` + encodeURIComponent('Internal Server Error. Please contact administrator.')
     }
     res.redirect(resRedirectUrl)
