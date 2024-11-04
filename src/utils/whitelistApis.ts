@@ -4743,6 +4743,29 @@ export const API_LIST = {
                       ROLE.PUBLIC,
                    ],
         },
+        '/proxies/v8/serviceregistry/v1/callexternalapibyid/:id': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                  ROLE.SPV_ADMIN,
+                  ROLE.MDO_ADMIN,
+                  ROLE.CBP_ADMIN,
+                  ],
+        },
+        '/proxies/v8/comment/report': {
+                   checksNeeded: [CHECK.ROLE],
+                   // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                      ROLE.PUBLIC,
+                   ],
+        },
+        '/proxies/v8/comment/delete/reported': {
+                   checksNeeded: [CHECK.ROLE],
+                   // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                      ROLE.MDO_ADMIN,
+                   ],
+        },
     },
     URL_PATTERN:
         [
@@ -5346,6 +5369,10 @@ export const API_LIST = {
             '/proxies/v8/operationalreports/v2/download/:rootOrgId',
             '/proxies/v8/storage/v1/uploadCiosLogsFile',
             '/proxies/v8/storage/v1/downloadCiosLogs/:fileName',
+<<<<<<< HEAD
+=======
+            '/proxies/v8/serviceregistry/v1/callexternalapibyid/:id',
+>>>>>>> 6cd60b587c773611a1d3a073701efbdcc04b7ee3
             '/proxies/v8/user/events/list/:uid',
             '/proxies/v8/event/batch/enroll',
             '/proxies/v8/eventprogress/v1/event/state/update',
@@ -5355,5 +5382,7 @@ export const API_LIST = {
             '/proxies/v8/comment/list',
             '/proxies/v8/comment/v1/like',
             '/proxies/v8/comment/v1/like/read',
+            '/proxies/v8/comment/report',
+            '/proxies/v8/comment/delete/reported',
            ],
 }
