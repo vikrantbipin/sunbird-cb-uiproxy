@@ -46,7 +46,9 @@ proxy.on('proxyReq', (proxyReq: any, req: any, _res: any, _options: any) => {
   // condition has been added to set the session in nodebb req header
   /* tslint:disable-next-line */
   if (req.originalUrl.includes('/discussion') && !req.originalUrl.includes('/discussion/user/v1/create') && req.session) {
-
+    if(req.session) {
+      req.sesson.cookie.secure = true
+    }
     if (req.body && req.session.hasOwnProperty('uid')) {
       req.body._uid = req.session.uid
     }
