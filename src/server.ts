@@ -65,7 +65,6 @@ export class Server {
     this.authoringApi()
     this.resetCookies()
     this.app.use(haltOnTimedOut)
-    this.setExtFormsFramework()
   }
 
   private setCookie() {
@@ -188,7 +187,7 @@ export class Server {
   private resetCookies() {
     this.app.use('/reset', (_req, res) => {
       logInfo('CLEARING RES COOKIES')
-      res.status(200).clearCookie('connect.sid', { path: '/' })
+      res.status(200).clearCookie('connect.sid', { httpOnly: false, path: '/', secure: true })
       if (_req.session) {
         _req.session.destroy(() => {
           res.redirect('/apis/logout')
