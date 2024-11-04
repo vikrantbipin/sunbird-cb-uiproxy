@@ -4752,6 +4752,20 @@ export const API_LIST = {
                   ROLE.CBP_ADMIN,
                   ],
         },
+        '/proxies/v8/comment/report': {
+                   checksNeeded: [CHECK.ROLE],
+                   // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                      ROLE.PUBLIC,
+                   ],
+        },
+        '/proxies/v8/comment/delete/reported': {
+                   checksNeeded: [CHECK.ROLE],
+                   // tslint:disable-next-line: object-literal-sort-keys
+                   ROLE_CHECK: [
+                      ROLE.MDO_ADMIN,
+                   ],
+        },
     },
     URL_PATTERN:
         [
@@ -5365,5 +5379,7 @@ export const API_LIST = {
             '/proxies/v8/comment/list',
             '/proxies/v8/comment/v1/like',
             '/proxies/v8/comment/v1/like/read',
+            '/proxies/v8/comment/report',
+            '/proxies/v8/comment/delete/reported',
            ],
 }
