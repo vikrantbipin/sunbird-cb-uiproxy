@@ -4576,8 +4576,9 @@ export const API_LIST = {
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
               ROLE.SPV_ADMIN,
-              ROLE.MDO_ADMIN,
+              ROLE.PUBLIC,
               ROLE.CBP_ADMIN,
+              ROLE.SPV_PUBLISHER,
             ],
         },
         '/proxies/v8/ciosIntegration/v1/search/content': {
