@@ -4783,7 +4783,7 @@ export const API_LIST = {
                       ROLE.CBP_ADMIN,
                   ],
         },
-        'proxies/v8/bp/v1/bpreport/status': {
+        '/proxies/v8/bp/v1/bpreport/status': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
@@ -4792,7 +4792,7 @@ export const API_LIST = {
                 ROLE.PROGRAM_COORDINATOR,
             ],
         },
-        'proxies/v8/bp/v1/generate/report': {
+        '/proxies/v8/bp/v1/generate/report': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
@@ -4801,7 +4801,7 @@ export const API_LIST = {
                 ROLE.PROGRAM_COORDINATOR,
             ],
         },
-        'proxies/v8/bp/v1/bpreport/download/:orgId/:courseId/:batchId/:fileName': {
+        '/proxies/v8/bp/v1/bpreport/download/:orgId/:courseId/:batchId/:fileName': {
             checksNeeded: [CHECK.ROLE],
             // tslint:disable-next-line: object-literal-sort-keys
             ROLE_CHECK: [
@@ -5427,8 +5427,8 @@ export const API_LIST = {
             '/proxies/v8/comment/delete/reported',
             '/proxies/v8/serviceregistry/config/update',
             '/proxies/v8/serviceregistry/config/read/:id',
-            'proxies/v8/bp/v1/bpreport/status',
-            'proxies/v8/bp/v1/generate/report',
-            'proxies/v8/bp/v1/bpreport/download/:orgId/:courseId/:batchId/:fileName',
+            '/proxies/v8/bp/v1/bpreport/status',
+            '/proxies/v8/bp/v1/generate/report',
+            '/proxies/v8/bp/v1/bpreport/download/:orgId/:courseId/:batchId/:fileName',
            ],
 }
