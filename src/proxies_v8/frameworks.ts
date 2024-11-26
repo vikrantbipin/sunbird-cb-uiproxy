@@ -39,8 +39,11 @@ frameworksApi.use('/*', async (req, res) => {
             return res.status(401).send('User does not have the required role to update the framework')
           }
       } else if (orgId && orgId !== userRootOrgId) {
-        return res.status(401).send(`You are not authorized to perform the action for org: ${userRootOrgId}`)
-      }
+        const hasAllowedRole = userRoleData.some((role: string) => allowedRoles.includes(role));
+        if (!hasAllowedRole) {
+            return res.status(401).send(`You are not authorized to perform the action for org: ${userRootOrgId}`);
+        }
+    }
     }
 
     // Proceed with the API request if all conditions are met
