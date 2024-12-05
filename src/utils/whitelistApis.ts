@@ -4904,6 +4904,16 @@ export const API_LIST = {
                 ROLE.SPV_PUBLISHER,
             ],
         },
+        '/proxies/v8/customselfregistration/isregistrationqractive': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.MDO_ADMIN,
+                ROLE.MDO_LEADER,
+                ROLE.SPV_ADMIN,
+                ROLE.SPV_PUBLISHER,
+            ],
+        },
     },
     URL_PATTERN:
         [
@@ -5535,5 +5545,6 @@ export const API_LIST = {
             '/proxies/v8/customselfregistration/listallqrs',
             '/proxies/v8/comment/v1/likedComments',
             '/proxies/v8/customselfregistration/upload/logo/gcpcontainer',
+            '/proxies/v8/customselfregistration/isregistrationqractive',
            ],
 }
