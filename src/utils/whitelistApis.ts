@@ -4242,6 +4242,7 @@ export const API_LIST = {
                           ROLE.SPV_ADMIN,
                           ROLE.MDO_ADMIN,
                           ROLE.CBP_ADMIN,
+                          ROLE.SPV_PUBLISHER,
                       ],
         },
         '/proxies/v8/serviceregistry/config/delete/:id': {
@@ -4251,6 +4252,7 @@ export const API_LIST = {
                        ROLE.SPV_ADMIN,
                        ROLE.MDO_ADMIN,
                        ROLE.CBP_ADMIN,
+                       ROLE.SPV_PUBLISHER,
                     ],
         },
         '/proxies/v8/serviceregistry/config/search': {
@@ -4260,6 +4262,7 @@ export const API_LIST = {
                       ROLE.SPV_ADMIN,
                       ROLE.MDO_ADMIN,
                       ROLE.CBP_ADMIN,
+                      ROLE.SPV_PUBLISHER,
                     ],
         },
         '/proxies/v8/serviceregistry/config/fetch': {
@@ -4269,6 +4272,7 @@ export const API_LIST = {
                       ROLE.SPV_ADMIN,
                       ROLE.MDO_ADMIN,
                       ROLE.CBP_ADMIN,
+                      ROLE.SPV_PUBLISHER,
                     ],
         },
         '/proxies/v8/comment/v1/addFirst': {
@@ -4758,6 +4762,7 @@ export const API_LIST = {
                   ROLE.SPV_ADMIN,
                   ROLE.MDO_ADMIN,
                   ROLE.CBP_ADMIN,
+                  ROLE.SPV_PUBLISHER,
                   ],
         },
         '/proxies/v8/comment/report': {
@@ -4780,6 +4785,7 @@ export const API_LIST = {
                   ROLE_CHECK: [
                       ROLE.SPV_ADMIN,
                       ROLE.CBP_ADMIN,
+                      ROLE.SPV_PUBLISHER,
                   ],
         },
         '/proxies/v8/serviceregistry/config/read/:id': {
@@ -4788,6 +4794,7 @@ export const API_LIST = {
                   ROLE_CHECK: [
                       ROLE.SPV_ADMIN,
                       ROLE.CBP_ADMIN,
+                      ROLE.SPV_PUBLISHER,
                   ],
         },
         '/proxies/v8/bp/v1/bpreport/status': {
