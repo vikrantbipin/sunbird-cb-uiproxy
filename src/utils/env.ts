@@ -192,6 +192,15 @@ export const CONSTANTS = {
   FRAMEWORK_ALLOWED_UPDATE_CATEGORY: env.FRAMEWORK_ALLOWED_UPDATE_CATEGORY || 'kcm_fw',
   FRAMEWORK_MASTER_ALLOWED_UPDATE_ROLE: env.FRAMEWORK_MASTER_ALLOWED_UPDATE_ROLE || 'SPV_ADMIN',
   PROFILE_UPDATE_LINK_PATH: env.PROFILE_UPDATE_LINK_PATH || '/app/person-profile/me#profileInfo',
+  LOOKER_SECRET: env.LOOKER_SECRET || 'secret',
+  LOOKER_HOST: env.LOOKER_HOST || 'lookerUrl',
+  LOOKER_SESSION_LENGTH: env.LOOKER_SESSION_LENGTH || 900,
+  LOOKER_USER_MODELS: env.LOOKER_USER_MODELS || 'employee_enrolment,igot',
+  // tslint:disable-next-line: max-line-length
+  LOOKER_USER_DASHBOARD_PERMISSION: env.LOOKER_USER_DASHBOARD_PERMISSION || 'see_user_dashboards,see_lookml_dashboards,access_data,see_looks',
+  // tslint:disable-next-line: max-line-length
+  LOOKER_GROUP_IDS: env.LOOKER_GROUP_IDS || '5,6',
+  LOOKER_FORCE_LOGOUT_LOGIN: env.LOOKER_FORCE_LOGOUT_LOGIN || false,
 }
 
 export const RESTRICTED_PYTHON_STMT: string[] = process.env.RESTRICTED_CHARACTERS
