@@ -4810,6 +4810,13 @@ export const API_LIST = {
                 ROLE.PROGRAM_COORDINATOR,
             ],
         },
+        '/proxies/v8/looker/dashboard': {
+           checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+               ROLE.PUBLIC,
+            ],
+        },
     },
     URL_PATTERN:
         [
@@ -5430,5 +5437,6 @@ export const API_LIST = {
             '/proxies/v8/bp/v1/bpreport/status',
             '/proxies/v8/bp/v1/generate/report',
             '/proxies/v8/bp/v1/bpreport/download/:orgId/:courseId/:batchId/:fileName',
+            '/proxies/v8/looker/dashboard',
            ],
 }

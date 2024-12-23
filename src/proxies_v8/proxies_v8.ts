@@ -26,6 +26,7 @@ import {
 } from '../utils/proxyCreator'
 import { extractUserIdFromRequest, extractUserToken } from '../utils/requestExtract'
 import { frameworksApi } from './frameworks'
+import { lookerDashboard } from './lookerIntegration'
 
 const API_END_POINTS = {
   batchParticipantsApi: `${CONSTANTS.KONG_API_BASE}/course/v1/batch/participants/list`,
@@ -1109,3 +1110,5 @@ proxiesV8.use('/bp/*',
   // tslint:disable-next-line: max-line-length
   proxyCreatorSunbird(express.Router(), `${CONSTANTS.KONG_API_BASE}`)
 )
+
+proxiesV8.use('/looker/dashboard', lookerDashboard)
