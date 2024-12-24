@@ -198,8 +198,9 @@ export const CONSTANTS = {
   // tslint:disable-next-line: max-line-length
   LOOKER_USER_DASHBOARD_PERMISSION: env.LOOKER_USER_DASHBOARD_PERMISSION || 'see_user_dashboards,see_lookml_dashboards,access_data,see_looks',
   // tslint:disable-next-line: max-line-length
-  LOOKER_GROUP_IDS: env.LOOKER_GROUP_IDS || '5,6',
+  LOOKER_GROUP_IDS: env.LOOKER_GROUP_IDS || '13',
   LOOKER_FORCE_LOGOUT_LOGIN: env.LOOKER_FORCE_LOGOUT_LOGIN || false,
+  LOOKER_DEFAULT_USER_NAME: env.LOOKER_DEFAULT_USER_NAME || 'Dashboard Viewer',
 }
 
 export const RESTRICTED_PYTHON_STMT: string[] = process.env.RESTRICTED_CHARACTERS
