@@ -1135,3 +1135,8 @@ proxiesV8.use('/community/v1/*',
 )
 
 proxiesV8.use('/looker/dashboard', lookerDashboard)
+
+proxiesV8.use('/courseRecommend/v1/courses',
+  // tslint:disable-next-line: max-line-length
+  proxyCreatorSunbirdSearch(express.Router(), `${CONSTANTS.KONG_API_BASE}/courseRecommend/v1/courses`)
+)
