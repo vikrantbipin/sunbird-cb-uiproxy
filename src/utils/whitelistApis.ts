@@ -5050,6 +5050,44 @@ export const API_LIST = {
                 ROLE.PUBLIC,
             ],
         },
+        '/proxies/v8/community/v1/category/create': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                     ROLE.SPV_ADMIN,
+                      ROLE.MDO_ADMIN,
+                  ],
+        },
+        '/proxies/v8/community/v1/category/update': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                     ROLE.SPV_ADMIN,
+                      ROLE.MDO_ADMIN,
+                  ],
+        },
+        '/proxies/v8/community/v1/category/read/:categoryId': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                    ROLE.PUBLIC,
+                  ],
+        },
+        '/proxies/v8/community/v1/category/delete/:categoryId': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                     ROLE.SPV_ADMIN,
+                      ROLE.MDO_ADMIN,
+                  ],
+        },
+        '/proxies/v8/community/v1/category/list': {
+                  checksNeeded: [CHECK.ROLE],
+                  // tslint:disable-next-line: object-literal-sort-keys
+                  ROLE_CHECK: [
+                    ROLE.PUBLIC,
+                  ],
+        },
     },
     URL_PATTERN:
         [
@@ -5700,5 +5738,10 @@ export const API_LIST = {
             '/proxies/v8/learner/course/v4/user/enrollment/summary/:id',
             '/proxies/v8/learner/course/v4/user/enrollment/list/:id',
             '/proxies/v8/learner/course/v4/user/enrollment/details/:id',
+            '/proxies/v8/community/v1/category/create',
+            '/proxies/v8/community/v1/category/update',
+            '/proxies/v8/community/v1/category/read/:categoryId',
+            '/proxies/v8/community/v1/category/delete/:categoryId',
+            '/proxies/v8/community/v1/category/list',
            ],
 }
