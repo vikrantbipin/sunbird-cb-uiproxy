@@ -4987,6 +4987,13 @@ export const API_LIST = {
             ROLE_CHECK: [
                ROLE.PUBLIC,
             ],
+        },
+        '/protected/v8/workflowhandler/v2/transition': {
+            checksNeeded: [CHECK.ROLE],
+            // tslint:disable-next-line: object-literal-sort-keys
+            ROLE_CHECK: [
+                ROLE.PUBLIC,
+            ],
         }
     },
     URL_PATTERN:
@@ -5629,5 +5636,6 @@ export const API_LIST = {
             '/proxies/v8/feedDiscussion/report',
             '/proxies/v8/feedDiscussion/uploadFile',
             '/proxies/v8/looker/dashboard',
+            '/protected/v8/workflowhandler/v2/transition',
            ],
 }

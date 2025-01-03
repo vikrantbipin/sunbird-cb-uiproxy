@@ -9,6 +9,7 @@ import { extractUserToken } from '../utils/requestExtract'
 
 const API_END_POINTS = {
     applicationTransition: `${CONSTANTS.KONG_API_BASE}/workflow/transition`,
+    applicationTransitionV2: `${CONSTANTS.KONG_API_BASE}/workflow/v2/transition`,
     applicationsSearch: `${CONSTANTS.KONG_API_BASE}/workflow/applications/search`,
     historyBasedOnApplicationId: (applicationId: string) =>
         `${CONSTANTS.WORKFLOW_HANDLER_SERVICE_API_BASE}/v1/workflow/${applicationId}/history`,
@@ -310,6 +311,39 @@ workflowHandlerApi.post('/profileApprovalSearch', async (req, res) => {
         }
         const response = await axios.post(
             API_END_POINTS.profileApprovalSearch,
+            req.body,
+            {
+                ...axiosRequestConfig,
+                headers: {
+                    Authorization: CONSTANTS.SB_API_KEY,
+                    org: orgValue,
+                    rootOrg: rootOrgValue,
+                     // tslint:disable-next-line: all
+                     'x-authenticated-user-token': extractUserToken(req),
+                },
+            }
+        )
+        res.status(response.status).send(response.data)
+    } catch (err) {
+        logError(failedToProcess + err)
+        res.status((err && err.response && err.response.status) || 500).send(
+            (err && err.response && err.response.data) || {
+                error: unknownError,
+            }
+        )
+    }
+})
+
+workflowHandlerApi.post('/v2/transition', async (req, res) => {
+    try {
+        const rootOrgValue = req.headers.rootorg
+        const orgValue = req.headers.org
+        if (!rootOrgValue || !orgValue) {
+            res.status(400).send(ERROR.ERROR_NO_ORG_DATA)
+            return
+        }
+        const response = await axios.post(
+            API_END_POINTS.applicationTransitionV2,
             req.body,
             {
                 ...axiosRequestConfig,
