@@ -13,12 +13,16 @@ const API_END_POINTS = {
 }
 
 export async function fetchUserByEmailId(emailId: string) {
+
+    const filters = emailId.includes('@')
+        ? { email: emailId.toLowerCase() }
+        : { phone: emailId }
     const sbUserSearchRes = await axios({
         ...axiosRequestConfig,
         data: {
             request: {
                 fields: ['userId', 'status', 'channel', 'rootOrgId', 'organisations'],
-                filters: { email: emailId.toLowerCase() },
+                filters,
             },
         },
         method: 'POST',
